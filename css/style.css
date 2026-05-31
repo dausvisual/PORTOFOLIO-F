@@ -1162,10 +1162,11 @@ section {
     }
 }
 
-/* PERBAIKAN TOTAL UNTUK LAYAR MOBILE & HP */
+/* PERBAIKAN TOTAL UNTUK LAYAR MOBILE & HP LILY VERSION */
 @media (max-width: 768px) {
     body { font-size: 14px; }
     section { padding: 5rem 5%; }
+    
     .home {
         flex-direction: column;
         text-align: center;
@@ -1173,47 +1174,85 @@ section {
         margin: 0;
     }
     .home-content { order: 2; width: 100%; }
+    
+    /* 1. Merapikan teks deskripsi profil menjadi rata kiri-kanan (Justify) */
+    .home-content p { text-align: justify; } 
+    
     .home-img { order: 1; width: 100%; }
     .contact-info { order: 3; margin-top: 2rem; width: 100%; }
     .home-img img { max-width: 250px; width: 70vw; }
     
     /* Grid adjustments */
     .services-container, 
-    .projects-container, 
-    .wrapper {
+    .projects-container {
         grid-template-columns: 1fr; 
         gap: 2rem;
         width: 100%;
     }
     
-    /* Timeline Pendidikan Fix */
+    /* 2. Timeline Pendidikan Fix (Memperbaiki titik yang meleset) */
     .timeline-items { padding-left: 20px; }
-    .timeline-items::before { left: 20px; }
+    .timeline-items::before { left: 0; }
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
         padding-left: 30px;
         padding-right: 0;
         text-align: left;
     }
-    .timeline-dot { left: 10px; }
+    .timeline-dot { 
+        left: 0; 
+        transform: translateX(-48%); 
+    }
     .timeline-content { padding: 20px; width: 100%; }
     
-    /* Boxes */
-    .service-box, .testimonial-item { 
+    /* 3. Boxes Keahlian (Menyesuaikan kotak agar tidak ada space kosong berlebih) */
+    .service-box { 
         padding: 2rem 1.5rem; 
         width: 100%; 
         max-width: 100%; 
         margin: 0; 
+        height: auto;
+        min-height: unset;
     }
     
-    /* Typography */
+    /* 4. Riwayat Kolaborasi (Mengubah menjadi 2 susun menyamping) */
+    .testimonials-box .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .testimonial-item { 
+        padding: 1.5rem 1rem; 
+        width: 100%; 
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: unset;
+    }
+
+    .testimonial-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-item h2 { 
+        font-size: 1.2rem; 
+        text-align: center;
+    }
+    
+    /* Typography Umum Mobile */
     .services h2, .testimonials h2, .recent-projects h2, .contact h2, .education h2 {
         font-size: 3rem;
         margin-bottom: 3rem;
     }
-    .service-info h4, .testimonial-item h2 { font-size: 2rem; }
+    .service-info h4 { font-size: 2rem; }
     .service-info p, .testimonial-item p { font-size: 1.4rem; }
-    .testimonial-item { min-height: 250px; }
     
     /* Halaman Galeri */
     .gallery-section { padding: 5rem 5% 10rem; }
