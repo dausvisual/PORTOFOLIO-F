@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Proyek - Firdaus Ikram</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        /* Sembunyikan semua grup galeri secara otomatis di awal */
+        .gallery-group {
+            display: none; 
+        }
+        /* Kelas ini akan ditambahkan oleh JavaScript untuk memunculkan galeri yang aktif */
+        .gallery-group.active {
+            display: block;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="gallery-section">
+        
+        <a href="index.html#projects" class="btn-back">
+            <i class='bx bx-arrow-back'></i> Kembali
+        </a>
+
+        <div id="vale" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Vale Indonesia Tbk.</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Air, PT. VALE Indonesia Tbk.</p>
+            <div class="gallery-grid">
+                <img src="assets/images/vale1.jpg.jpg" alt="Survei 1">
+                <img src="assets/images/vale2.jpg.jpg" alt="Survei 2">
+                <img src="assets/images/vale3.jpg.jpg" alt="Survei 3">
+                <img src="assets/images/vale4.jpg.jpg" alt="Survei 4">
+            </div>
+        </div>
+
+        <div id="pam" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. PAM Mineral Tbk.</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Air, PT. PAM Mineral Tbk.</p>
+            <div class="gallery-grid">
+                <img src="assets/images/pam1.jpg" alt="Survei pam mineral 1">
+                <img src="assets/images/pam3.jpg" alt="Survei pam mineral 3">
+                <img src="assets/images/pam4.jpg" alt="Survei pam mineral 4"> 
+                <img src="assets/images/pam5.jpg" alt="Survei pam mineral 5">
+            </div>
+        </div>
+
+        <div id="mti" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Merdeka Tsingshan Indonesia</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Air, PT. Merdeka Tsingshan Indonesia</p>
+            <div class="gallery-grid">
+                <img src="assets/images/mti1.jpg" alt="Survei mti 1">
+                <img src="assets/images/mti2.jpg" alt="Survei mti 2">
+                <img src="assets/images/mti3.jpg" alt="Survei mti 3">
+                <img src="assets/images/mti4.jpg" alt="Survei mti 4"> 
+            </div>
+        </div>
+
+        <div id="msb" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Mitra Sulawesi Bersama</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Air, PT. Mitra Sulawesi Bersama</p>
+            <div class="gallery-grid">
+                <img src="assets/images/msb1.jpg" alt="Survei msb 1">
+                <img src="assets/images/msb2.jpg" alt="Survei msb 2">
+                <img src="assets/images/msb3.jpg" alt="Survei msb 3">
+            </div>
+        </div>
+
+        <div id="imip" class="gallery-group">
+            <h2 class="heading">Galeri <span>Indonesia Morowali Industrial Park</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Udara, Indonesia Morowali Industrial Park</p>
+            <div class="gallery-grid">
+                <img src="assets/images/imip1.jpg" alt="Survei imip 1">
+                <img src="assets/images/imip2.jpg" alt="Survei imip 2">
+            </div>
+        </div>
+
+        <div id="awk" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Anindya Wiraputra Konsult</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Air, PT. Anindya Wiraputra Konsult</p>
+            <div class="gallery-grid">
+                <img src="assets/images/awk1.jpg" alt="Survei awk 1">
+                <img src="assets/images/awk2.jpg" alt="Survei awk 2">
+                <img src="assets/images/awk3.jpg" alt="Survei awk 3">
+                <img src="assets/images/awk4.jpg" alt="Survei awk 4">
+                <img src="assets/images/awk5.jpg" alt="Survei awk 5">
+                <img src="assets/images/awk6.jpg" alt="Survei awk 6">
+                <img src="assets/images/awk7.jpg" alt="Survei awk 7">
+            </div>
+        </div>
+
+        <div id="igip" class="gallery-group">
+            <h2 class="heading">Galeri <span>International Green Industrial Park</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Udara, International Green Industrial Park</p>
+            <div class="gallery-grid">
+                <img src="assets/images/igip1.jpg" alt="Survei igip 1">
+                <img src="assets/images/igip2.jpg" alt="Survei igip 2">
+            </div>
+        </div>
+
+        <div id="ihip" class="gallery-group">
+            <h2 class="heading">Galeri <span>Indonesia Huabao Industrial Park</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Udara, Indonesia Huabao Industrial Park</p>
+            <div class="gallery-grid">
+                <img src="assets/images/ihip1.jpg" alt="Survei ihip 1">
+                <img src="assets/images/ihip2.jpg" alt="Survei ihip 2">
+                <img src="assets/images/ihip3.jpg" alt="Survei ihip 3">
+            </div>
+        </div>
+
+        <div id="adp" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Alaska Dwipa Perdana</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Udara, PT. Alaska Dwipa Perdana</p>
+            <div class="gallery-grid">
+                <img src="assets/images/adp1.jpg" alt="Survei adp 1">
+                <img src="assets/images/adp2.jpg" alt="Survei adp 2">
+                <img src="assets/images/adp3.jpg" alt="Survei adp 3">
+                <img src="assets/images/adp4.jpg" alt="Survei adp 4">
+            </div>
+        </div>
+
+        <div id="fcm" class="gallery-group">
+            <h2 class="heading">Galeri <span>PT. Farmel Cipta Mandiri</span></h2>
+            <p class="gallery-desc">Ketua Tim Survei Pengambilan Sampel Udara, PT. Farmel Cipta Mandiri</p>
+            <div class="gallery-grid">
+                <img src="assets/images/fcm1.jpg" alt="Survei fcm 1">
+                <img src="assets/images/fcm2.jpg" alt="Survei fcm 2">
+                <img src="assets/images/fcm3.jpg" alt="Survei fcm 3">
+                <img src="assets/images/fcm4.jpg" alt="Survei fcm 4">
+            </div>
+        </div>
+        
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <div class="lightbox-container">
+                <img class="lightbox-content" id="lightbox-img">
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // 1. Logika Pemanggilan Proyek dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const proyekAktif = urlParams.get('proyek');
+
+        if (proyekAktif) {
+            const galeriTarget = document.getElementById(proyekAktif);
+            if (galeriTarget) {
+                galeriTarget.classList.add('active');
+            } else {
+                document.querySelector('.gallery-section').innerHTML += "<h2 class='heading'>Galeri tidak ditemukan.</h2>";
+            }
+        } else {
+            document.querySelector('.gallery-section').innerHTML += "<h2 class='heading'>Silakan pilih proyek dari halaman utama.</h2>";
+        }
+
+        // 2. Logika Lightbox (Klik Foto) - Disempurnakan
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lightbox');
+        const gridImages = document.querySelectorAll('.gallery-grid img');
+
+        // BUKA LIGHTBOX
+        gridImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.classList.add('show');
+                lightboxImg.src = this.src; 
+                document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
+            });
+        });
+
+        // FUNGSI TUTUP LIGHTBOX
+        function closePopup() {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Kembalikan scroll halaman belakang
+        }
+
+        // Tutup jika tombol silang (X) diklik
+        closeBtn.addEventListener('click', closePopup);
+
+        // Tutup jika area hitam luar diklik
+        lightbox.addEventListener('click', function(e) {
+            if (e.target !== lightboxImg) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+</html>
