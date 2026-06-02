@@ -1462,6 +1462,12 @@ section {
         border: 2px solid rgba(0, 150, 255, 0.8); /* Cincin neon dilukis lebih tipis berdiameter 2px agar proporsional di HP */
         box-shadow: 0 0 15px rgba(0, 150, 255, 0.5); /* Mengurangi beban pendaran cahaya luar agar layar kecil tidak silau */
     }
+    .services-container, 
+    .projects-container, 
+    .gallery-grid, 
+    .wrapper {
+        grid-template-columns: repeat(4, 1fr);        /* ATURAN SAKTI HP: Pecahkan seluruh barisan menyamping 3 kolom menjadi antrean 1 kolom panjang ke bawah!! */
+    }
 }
 
 /* -------------------------------------------------------------------------
