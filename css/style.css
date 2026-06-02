@@ -652,6 +652,7 @@ section {
     padding: 2rem;                         /* Jarak batas empuk ruang dalam kartu sebesar 20px */
     box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sentuhan bayangan jatuh yang sangat tipis modern */
     transition: 0.4s ease;                 /* Menengahi animasi durasi sedang 0.4 detik memanjakan mata */
+    border-radius: 2rem;                 /* Membulatkan seluruh sudut kartu sebesar 15px */
 }
 
 .project-card:hover { 
@@ -717,7 +718,27 @@ section {
     border-radius: 2rem;                   /* Membulatkan sudut tajam kapsul hingga menjadi pil tumpul sempurna */
     color: var(--text-dark);               /* Warna teks di dalam kapsul mengikuti variabel ungu gelap */
 } 
+/* =========================================
+   16. FITUR "SEE MORE" RECENT PROJECTS
+========================================= */
+.see-more-container {
+    text-align: center;
+    margin-top: 4rem;
+    width: 100%;
+}
 
+.see-more-btn {
+    display: none; /* Disembunyikan secara default (Laptop/PC) */
+    background: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    margin: 0 auto;
+}
+
+.see-more-btn:hover {
+    background: var(--main-color);
+    color: white;
+}
 /* =========================================================================
    10. BAGIAN EDUCATION (RIWAYAT PENDIDIKAN)
    Fungsi: Membentuk peta alur riwayat sekolah meliuk menyamping bersinar Neon Biru.
@@ -1378,8 +1399,54 @@ section {
     .social-icons {
         justify-content: center;           /* Mendorong kelompok lambang sosmed merapat berpusat tengah di HP */
     }
+    .services-container {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
+@media (max-width: 895px) {
+    #menu-icon { display: block; }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0%;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
+    }
+    .navbar.active { display: block; }
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
+    }
+    .home {
+        flex-direction: column-reverse;
+        margin: 5rem 4rem;
+    }
+    .home-content {
+        align-items: center;
+        text-align: center;
+    }
+    .home-content h3 { font-size: 2.6rem; }
+    .home-content h1 { font-size: 5rem; margin-top: 3rem; }
+    .home-content p { max-width: 100%; margin: 0 auto; }
+    .text-animation { font-size: 2.4rem; min-width: 200px; }
+    .home-img img {
+        position: static;
+        width: 50vw;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
 /* -------------------------------------------------------------------------
    --- 2. UNTUK LAYAR HANDPHONE NORMAL SEDANG (Maksimal Lebar 768px) ---
    ------------------------------------------------------------------------- */
@@ -1387,12 +1454,14 @@ section {
     .home {
         padding-left: 5%;                  /* Menipiskan bantalan aspal kiri layar biar tulisan rada melar bernapas lega */
         padding-right: 5%;                 /* Mematangkan rongga oksigen kanan sama seperti saudara kembar si kiri 5% */
+        flex-direction:column;          /* Membalik susunan. FOTO NAIK ke atas, TEKS turun di bawah! */
+        text-align: center;                /* Teks otomatis rata seimbang di tengah tidak miring kiri lagi */
     }
     
     .home-content h1 {
         font-size: 4rem;                   /* Melunturkan raksasa huruf Nama Bos Firdaus Ikram menjadi kurcaci 40px */
     }
-    
+    .home-content p { text-align: justify; } 
     .text-animation {
         font-size: 2rem;                   /* Font animasi profesi kedip kedip direset ukurannya 20px biar pas di HP */
         margin-bottom: 1.5rem;             /* Celah nafas bawah merapat romantis memendek jadi 15px */
@@ -1462,6 +1531,46 @@ section {
         border: 2px solid rgba(0, 150, 255, 0.8); /* Cincin neon dilukis lebih tipis berdiameter 2px agar proporsional di HP */
         box-shadow: 0 0 15px rgba(0, 150, 255, 0.5); /* Mengurangi beban pendaran cahaya luar agar layar kecil tidak silau */
     }
+    /* 3. Boxes Keahlian (Menyesuaikan kotak agar tidak ada space kosong berlebih) */
+    .service-box { 
+        padding: 2rem 1.5rem; 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0; 
+        height: auto;
+        min-height: unset;
+    }
+    
+    /* 4. Riwayat Kolaborasi (Mengubah menjadi 2 susun menyamping) */
+    .testimonials-box .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .testimonial-item { 
+        padding: 1.5rem 1rem; 
+        width: 100%; 
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: unset;
+    }
+
+    .testimonial-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+    /* Fitur See More */
+    .see-more-btn { display: inline-block; }
+    .projects-container:not(.show-all) .project-box:nth-child(n+6) {
+        display: none;
+    }
 }
 
 /* -------------------------------------------------------------------------
@@ -1517,6 +1626,6 @@ section {
     } 
     
     .wrapper { 
-        grid-template-columns: 1fr;        /* AKHIRNYA: Mencincang barisan 5 kolom logo PT menjadi 1 Baris Tunggal Penuh Sepanjang Lorong Kegelapan 1FR Memanjang Sendiri Kesepian! Tamatlah Riwayat Estetika Desktop! Hidup Fungsionalitas Mobile! */
+        grid-template-columns: repeat (3, 1fr);        /* AKHIRNYA: Mencincang barisan 5 kolom logo PT menjadi 1 Baris Tunggal Penuh Sepanjang Lorong Kegelapan 1FR Memanjang Sendiri Kesepian! Tamatlah Riwayat Estetika Desktop! Hidup Fungsionalitas Mobile! */
     } 
 }
