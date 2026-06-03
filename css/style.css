@@ -79,7 +79,7 @@ section {
     position: fixed;           /* Membuat menu selalu menempel/mengikuti saat di-scroll */
     top: 0; left: 0;           /* Terkunci di ujung kiri atas layar */
     width: 100%;               /* Lebar menu memanjang penuh */
-    padding: 2rem 10%;         /* Ruang bernapas di dalam header */
+    padding: 1.5rem 10%;         /* Ruang bernapas di dalam header */
     background: rgba(5, 8, 16, 0.8); /* Latar belakang gelap tembus pandang 80% */
     backdrop-filter: blur(15px); /* Memberikan efek kaca blur pada elemen di belakang header */
     display: flex;             /* Menyusun logo dan menu secara menyamping (horizontal) */
@@ -562,6 +562,7 @@ section {
 ========================================================================= */
 @media (max-width: 768px) {
     .home { padding-left: 5%; padding-right: 5%; } 
+    .header { padding: 1rem 3%; }
     .home-content h1 { font-size: 4rem; } 
     .text-animation { font-size: 2rem; margin-bottom: 1.5rem; }
     .role-tags .role-item { font-size: 1.4rem; }
