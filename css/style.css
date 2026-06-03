@@ -512,150 +512,205 @@ section {
    16. RESPONSIVE DESIGN (MEDIA QUERIES)
 ========================================================================= */
 
-/* --- 1. UNTUK LAYAR TABLET & HP LEBAR PATAH MIRING (Maksimal Lebar 991px) --- */
-@media (max-width: 991px) {
-    .home { 
-        flex-direction: column-reverse; justify-content: center; text-align: center; 
-        padding-top: 13rem; padding-bottom: 8rem; gap: 4rem; 
-    } 
-    .home-content { align-items: center; text-align: center; flex: 1 1 100%; }
-    .home-content p { text-align: center; margin-bottom: 3rem; }
-    .role-tags { justify-content: center; gap: 1.2rem; margin-bottom: 3rem; }
-    .home-img { 
-        flex: 1 1 100%; display: flex; justify-content: center; 
-        align-items: center; margin-bottom: 1.5rem; 
-    }
-    .aura-container { width: 260px; height: 260px; }
-    .orbit-icon { width: 4.2rem; height: 4.2rem; font-size: 1.8rem; display: none !important; }
-    .navbar {
-        position: absolute; top: 100%; right: 0%; width: 55%; padding: 1rem 3%;
-        background: rgba(5, 8, 16, 0.96); backdrop-filter: blur(20px); display: none;
-    }
-    .navbar.active { display: block; } 
-    .navbar a { display: block; margin: 3rem 0; font-size: 1.8rem; } 
-    #menu-icon { display: block; } 
-    .social-icons { justify-content: center; }
-    .about-container { grid-template-columns: 1fr; text-align: center; }
-    .about-img-box {
-        display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3rem;
-    }
-    .about-img-box::before { display: none; }
-    .about-img-box img {
-        position: relative; z-index: 2; max-width: 350px; margin-bottom: 2rem; display: block;
-    }
-    .floating-card {
-        position: relative !important; top: 0 !important; right: 0 !important; 
-        bottom: 0 !important; left: 0 !important; width: 100% !important; 
-        max-width: 350px; margin: 0 auto; display: block; 
+/* =========================================
+   18. RESPONSIVE DESIGN (Media Queries)
+========================================= */
+@media (max-width: 1285px) {
+    html { font-size: 55%; }
+    .services-container {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* --- 2. UNTUK LAYAR HANDPHONE NORMAL SEDANG (Maksimal Lebar 768px) --- */
-@media (max-width: 768px) {
-    .home { padding-left: 5%; padding-right: 5%; }
-    .home-content h1 { font-size: 4rem; }
-    .text-animation { font-size: 2rem; margin-bottom: 1.5rem; }
-    .role-tags .role-item { font-size: 1.4rem; }
-    .role-tags .role-item i { font-size: 1.8rem; }
-    .btn-group { flex-direction: column; width: 100%; gap: 1.5rem; }
-    .btn { width: 100%; justify-content: center; padding: 1.5rem 2rem; }
+@media (max-width: 1080px) and (orientation: portrait) {
+    .home {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .home-img img {
+        width: 500px;
+        max-width: 100%;
+    }
+    .contact-info {
+        max-width: 100%;
+        padding: 1rem;
+    }
+}
 
-    /* ============= PERBAIKAN 3 KOLOM RAPI DI HP (Semua Box, Project, & Testimoni) ============= */
-    .services-container,
-    .projects-container,
-    .gallery-grid,
-    .wrapper {
-        grid-template-columns: repeat(3, 1fr) !important; /* Paksa 3 baris ke samping */
-        gap: 1rem; /* Jarak celah ditekan agar tidak tumpah */
-    }
+@media (max-width: 991px) {
+    header { padding: 2rem 5%; }
+    section { padding: 8rem 5% 4rem; }
+    .services { padding-bottom: 7rem; }
+    .contact form { flex-direction: column; }
+    .footer { padding: 2rem 5%; }
+}
 
-    /* Penyesuaian agar Kartu di dalam 3 kolom kecil tidak gepeng */
-    .project-card, .service-box, .testimonial-item {
-        padding: 0.8rem; /* Ruang dalam diperkecil maksimal */
-        min-height: auto; /* Cabut pembatasan tinggi minimum */
+@media (max-width: 895px) {
+    #menu-icon { display: block; }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0%;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
     }
-    
-    .project-img, .gallery-grid img {
-        height: 70px; /* Foto thumbnail dipendekkan agar proporsional */
-        width: 100%;
-        object-fit: cover; /* Wajib pakai cover agar foto tidak mleyot/gepeng */
-        border-radius: 0.8rem;
-        margin-bottom: 1rem;
+    .navbar.active { display: block; }
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
     }
-    
-    .project-info {
-        flex-direction: column; /* Nama proyek dan tombol disusun vertikal di HP */
+    .home {
+        flex-direction: column-reverse;
+        margin: 5rem 4rem;
+    }
+    .home-content {
         align-items: center;
         text-align: center;
-        gap: 0.5rem;
     }
-    
-    .project-info h3, .service-info h4, .testimonial-item h2 {
-        font-size: 1.1rem; /* Font judul dikecilkan jadi kurcaci */
-        line-height: 1.2;
-    }
-    
-    .project-desc, .service-info p, .testimonial-item p {
-        font-size: 0.9rem; /* Deskripsi sangat mungil agar muat */
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-    
-    .tech-stack span {
-        font-size: 0.8rem; /* Tag kemapuan diatur sekecil mungkin */
-        padding: 0.3rem 0.5rem;
-    }
-    
-    .project-info a {
-        width: 2.5rem; height: 2.5rem; font-size: 1.2rem;
-    }
-
-    /* Khusus kotak logo kolaborasi */
-    .testimonial-item img {
-        width: 40px; /* Ukuran logo ditekan kecil */
-        height: 40px;
-        object-fit: contain;
-    }
-
-    /* Batasan Limitasi 9 Kotak Proyek Saja */
-    .projects-container:not(.show-all) .project-card:nth-child(n+10) {
-        display: none !important;
-    }
-
-    .see-more-btn { display: inline-flex !important; margin: 2rem auto 0; }
-
-    /* Timeline di HP diubah ke bawah */
-    .timeline-horizontal {
-        display: flex; flex-direction: column; padding-left: 3rem; margin-top: 3rem;
-    }
-    .timeline-item-h { height: auto; margin-bottom: 4rem; padding-right: 0; } 
-    .timeline-item-h::before, .timeline-item-h::after { display: none !important; } 
-    .timeline-horizontal::before {
-        display: block; content: ''; position: absolute; width: 3px; height: 100%;
-        left: 0; top: 0; background: var(--neon-blue);
-        box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-    }
-    .timeline-dot-h { 
-        position: absolute; left: -3rem; top: 0; transform: translateX(-50%); 
-    } 
-    .aura-ring {
-        border: 2px solid rgba(0, 150, 255, 0.8); box-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+    .home-content h3 { font-size: 2.6rem; }
+    .home-content h1 { font-size: 5rem; margin-top: 3rem; }
+    .home-content p { max-width: 100%; margin: 0 auto; }
+    .text-animation { font-size: 2.4rem; min-width: 200px; }
+    .home-img img {
+        position: static;
+        width: 50vw;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
 }
 
-/* --- 3. UNTUK LAYAR HANDPHONE SANGAT KECIL (Maksimal Lebar Cuma 480px) --- */
+/* PERBAIKAN TOTAL UNTUK LAYAR MOBILE & HP LILY VERSION */
+@media (max-width: 768px) {
+    body { font-size: 14px; }
+    section { padding: 5rem 5%; }
+    
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 5% 5rem;
+        margin: 0;
+    }
+    .home-content { order: 2; width: 100%; }
+    
+    /* 1. Merapikan teks deskripsi profil menjadi rata kiri-kanan (Justify) */
+    .home-content p { text-align: justify; } 
+    
+    .home-img { order: 1; width: 100%; }
+    .contact-info { order: 3; margin-top: 2rem; width: 100%; }
+    .home-img img { max-width: 250px; width: 70vw; }
+    
+    /* Grid adjustments */
+    .services-container, 
+    .projects-container {
+        grid-template-columns: 1fr; 
+        gap: 2rem;
+        width: 100%;
+    }
+    
+    /* 2. Timeline Pendidikan Fix (Memperbaiki titik yang meleset) */
+    .timeline-items { padding-left: 20px; }
+    .timeline-items::before { left: 0; }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 30px;
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeline-dot { 
+        left: 0; 
+        transform: translateX(-48%); 
+    }
+    .timeline-content { padding: 20px; width: 100%; }
+    
+    /* 3. Boxes Keahlian (Menyesuaikan kotak agar tidak ada space kosong berlebih) */
+    .service-box { 
+        padding: 2rem 1.5rem; 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0; 
+        height: auto;
+        min-height: unset;
+    }
+    
+    /* 4. Riwayat Kolaborasi (Mengubah menjadi 2 susun menyamping) */
+    .testimonials-box .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .testimonial-item { 
+        padding: 1.5rem 1rem; 
+        width: 100%; 
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: unset;
+    }
+
+    .testimonial-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-item h2 { 
+        font-size: 1.2rem; 
+        text-align: center;
+    }
+    
+    /* Typography Umum Mobile */
+    .services h2, .testimonials h2, .recent-projects h2, .contact h2, .education h2 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+    .service-info h4 { font-size: 2rem; }
+    .service-info p, .testimonial-item p { font-size: 1.4rem; }
+    
+    /* Halaman Galeri */
+    .gallery-section { padding: 5rem 5% 10rem; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .gallery-grid img { height: auto; max-width: 100%; }
+    
+    /* Lightbox */
+    .close-lightbox { top: 15px; right: 20px; font-size: 4rem; }
+    
+    /* Fitur See More */
+    .see-more-btn { display: inline-block; }
+    .projects-container:not(.show-all) .project-box:nth-child(n+6) {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
-    .home-content h1 { font-size: 3.2rem; } 
-    .text-animation { font-size: 1.6rem; } 
-    .aura-container { width: 220px; height: 220px; }
-    .orbit-icon { width: 3.8rem; height: 3.8rem; font-size: 1.6rem; }
-
-    /* Agar tetap 3 susun tidak remuk di HP terkecil */
-    .project-img, .gallery-grid img { height: 60px; } 
-    .project-info h3, .service-info h4, .testimonial-item h2 { font-size: 1rem; } 
-    .project-desc, .service-info p, .testimonial-item p { font-size: 0.85rem; } 
-    .testimonial-item img { width: 35px; height: 35px; }
-
-    .contact form .input-box input, 
-    .contact form textarea { padding: 1.5rem; font-size: 1.4rem; } 
+    .home-content h1 { font-size: 3.5rem; }
+    .text-animation { font-size: 1.8rem; }
+    
+    .project-layer h4 { font-size: 2rem; }
+    .project-layer p { font-size: 1.4rem; }
+    .project-box img { height: 250px; }
+    
+    .service-info h4, .testimonial-item h2 { font-size: 1.8rem; }
+    .service-info p, .testimonial-item p { font-size: 1.2rem; }
+    
+    .contact form .input-box input,
+    .contact form textarea {
+        padding: 1.5rem;
+        font-size: 1.4rem;
+    }
 }
