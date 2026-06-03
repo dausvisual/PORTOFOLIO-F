@@ -1480,7 +1480,7 @@ section {
     .projects-container,
     .gallery-grid,
     .wrapper {
-        grid-template-columns: 1fr;        /* ATURAN SAKTI HP: Pecahkan seluruh barisan menyamping menjadi antrean 1 kolom panjang ke bawah */
+        grid-template-columns: repeat(3, 1fr);        /* ATURAN SAKTI HP: Pecahkan seluruh barisan menyamping menjadi antrean 1 kolom panjang ke bawah */
     }
 
     /* LIMITASI PROJECTS DI MOBILE (CUKUP TAMPIL 3 BARIS KE BAWAH) */
