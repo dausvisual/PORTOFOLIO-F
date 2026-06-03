@@ -1,389 +1,391 @@
 /* =========================================================================
    1. RESET & PENGATURAN DASAR
-   Fungsi: Membersihkan gaya bawaan browser agar web seragam di semua perangkat
+   Fungsi: Membersihkan gaya bawaan browser agar web seragam di semua perangkat.
 ========================================================================= */
 * {
-    margin: 0; /* Menghilangkan jarak luar bawaan elemen */
-    padding: 0; /* Menghilangkan jarak dalam bawaan elemen */
-    box-sizing: border-box; /* Memastikan padding/border tidak menambah lebar total elemen */
-    text-decoration: none; /* Menghilangkan garis bawah pada link (tautan) */
-    border: none; /* Menghapus garis tepi bawaan elemen */
-    outline: none; /* Menghapus garis seleksi (fokus) biru bawaan browser */
-    scroll-behavior: smooth; /* Memberikan efek gulir (scroll) halaman yang halus */
+    margin: 0;                 /* Menghilangkan jarak luar bawaan elemen */
+    padding: 0;                /* Menghilangkan jarak dalam bawaan elemen */
+    box-sizing: border-box;    /* Memastikan padding/border tidak menambah lebar total elemen */
+    text-decoration: none;     /* Menghilangkan garis bawah pada link (tautan) */
+    border: none;              /* Menghapus garis tepi bawaan elemen */
+    outline: none;             /* Menghapus garis seleksi (fokus) biru bawaan browser */
+    scroll-behavior: smooth;   /* Memberikan efek gulir (scroll) halaman yang halus */
     font-family: "Poppins", sans-serif; /* Menerapkan font Poppins untuk seluruh teks */
 }
 
 /* =========================================================================
    2. VARIABEL WARNA (TEMA BARU)
-   Fungsi: Menyimpan daftar warna agar mudah diubah secara serentak
+   Fungsi: Menyimpan daftar palet warna agar mudah diubah secara serentak.
 ========================================================================= */
 :root {
-    --bg-dark: #050810; /* Warna latar belakang gelap utama (Biru dongker pekat) */
-    --bg-light: #f5f3ff; /* Warna latar belakang terang (Lavender pucat) */
-    --text-light: #ffffff; /* Warna teks putih untuk latar gelap */
-    --text-dark: #2e1065; /* Warna teks gelap untuk latar terang */
-    --text-muted: #8b98a5; /* Warna teks abu-abu redup untuk deskripsi sekunder */
-    --main-color: #4f46e5; /* Warna ungu utama untuk tombol dan aksen */
+    --bg-dark: #050810;        /* Warna latar belakang gelap utama (Biru dongker pekat) */
+    --bg-light: #f5f3ff;       /* Warna latar belakang terang (Lavender pucat) */
+    --text-light: #ffffff;     /* Warna teks putih untuk latar gelap */
+    --text-dark: #2e1065;      /* Warna teks gelap untuk latar terang */
+    --text-muted: #8b98a5;     /* Warna teks abu-abu redup untuk deskripsi sekunder */
+    --main-color: #4f46e5;     /* Warna ungu utama untuk tombol dan aksen */
     --main-color-light: #818cf8; /* Warna ungu terang untuk efek nyala (glow) */
-    --neon-blue: #00e5ff; /* Warna biru neon khusus efek garis timeline */
+    --neon-blue: #00e5ff;      /* Warna biru neon khusus efek garis timeline */
     --main-gradient: linear-gradient(90deg, #4f46e5, #7c3aed); /* Gradasi ungu ke biru */
     --card-bg-dark: rgba(255, 255, 255, 0.03); /* Latar belakang kartu transparan (Mode gelap) */
-    --card-bg-light: #ffffff; /* Latar belakang kartu putih (Mode terang) */
+    --card-bg-light: #ffffff;  /* Latar belakang kartu putih (Mode terang) */
     --border-color-dark: rgba(255, 255, 255, 0.1); /* Garis batas tipis transparan */
 }
 
 /* =========================================================================
    3. PENGATURAN GLOBAL (HTML, BODY, & SECTION)
-   Fungsi: Mengatur ukuran dasar dan mencegah halaman bergeser ke samping
+   Fungsi: Mengatur fondasi ukuran dan mencegah halaman meluber ke samping.
 ========================================================================= */
 html {
-    font-size: 62.5%; /* Trik perhitungan: 1rem = 10px, memudahkan pengaturan ukuran */
-    overflow-x: hidden; /* Mencegah halaman bisa digeser (scroll) ke samping horizontal */
+    font-size: 62.5%;          /* Trik perhitungan: 1rem = 10px, memudahkan pengaturan ukuran */
+    overflow-x: hidden;        /* Mencegah halaman bisa digeser (scroll) ke samping horizontal */
 }
 
 body {
-    background: var(--bg-dark); /* Mengaplikasikan warna latar gelap ke seluruh body */
-    color: var(--text-light); /* Mengaplikasikan teks putih sebagai default */
-    overflow-x: hidden; /* Pengamanan ganda agar web tidak goyang ke samping */
-    width: 100%; /* Memaksa lebar body memenuhi 100% layar */
+    background: var(--bg-dark);/* Mengaplikasikan warna latar gelap ke seluruh body */
+    color: var(--text-light);  /* Mengaplikasikan teks putih sebagai default */
+    overflow-x: hidden;        /* Pengamanan ganda agar web tidak goyang ke samping */
+    width: 100%;               /* Memaksa lebar body memenuhi 100% layar */
 }
 
 section {
-    padding: 10rem 12% 5rem; /* Jarak ruang kosong tiap bab: Atas 100px, Kiri-Kanan 12%, Bawah 50px */
-    width: 100%; /* Lebar tiap bab memenuhi layar */
-    position: relative; /* Menjadi jangkar (patokan) bagi elemen melayang di dalamnya */
-    overflow: hidden; /* Menyembunyikan elemen/efek yang meluber keluar dari batas bab */
+    padding: 10rem 12% 5rem;   /* Jarak ruang kosong tiap bab: Atas 100px, Kiri-Kanan 12%, Bawah 50px */
+    width: 100%;               /* Lebar tiap bab memenuhi layar */
+    position: relative;        /* Menjadi jangkar (patokan) bagi elemen melayang di dalamnya */
+    overflow: hidden;          /* Menyembunyikan elemen/efek yang meluber keluar dari batas bab */
 }
 
 @media (min-width: 1024px) {
-    body { zoom: 0.9; } /* Memperkecil skala tampilan 10% di monitor laptop/PC agar tidak terlalu raksasa */
+    body { zoom: 0.9; }        /* Memperkecil skala tampilan 10% di monitor laptop/PC agar pas di layar */
 }
 
 /* =========================================================================
-   4. EFEK PARTIKEL GLOBAL
-   Fungsi: Wadah kanvas tempat partikel interaktif bergerak di latar belakang
+   4. EFEK PARTIKEL GLOBAL (PARTICLES.JS)
+   Fungsi: Menyiapkan lapisan kanvas tempat partikel interaktif bergerak di latar.
 ========================================================================= */
 .particles-wrapper {
-    position: absolute; /* Mengatur elemen melayang bebas dari struktur normal */
-    top: 0; left: 0; /* Menempel tepat di pojok kiri atas */
+    position: absolute;        /* Mengatur elemen melayang bebas dari struktur normal */
+    top: 0; left: 0;           /* Menempel tepat di pojok kiri atas */
     width: 100%; height: 100%; /* Membentang menutupi 100% ukuran bab induknya */
-    z-index: 0; /* Meletakkan kanvas di lapisan paling bawah (belakang) */
-    pointer-events: none; /* Mencegah kanvas menghalangi klik mouse user ke tombol/link */
+    z-index: 0;                /* Meletakkan kanvas di lapisan paling bawah (belakang) */
+    pointer-events: none;      /* Mencegah kanvas menghalangi klik mouse user ke tombol/link */
 }
 
 /* =========================================================================
-   5. BAGIAN HEADER & NAVIGASI (MENU ATAS)
-   Fungsi: Bar navigasi yang selalu menempel di atas dengan efek kaca buram
+   5. HALAMAN: HEADER & NAVIGASI (MENU ATAS)
+   Fungsi: Membuat menu navigasi yang melayang dengan efek kaca buram (glassmorphism).
 ========================================================================= */
 .header {
-    position: fixed; /* Membuat menu selalu menempel/mengikuti saat di-scroll */
-    top: 0; left: 0; /* Terkunci di ujung kiri atas layar */
-    width: 100%; /* Lebar menu memanjang penuh */
-    padding: 2rem 10%; /* Ruang bernapas di dalam header */
+    position: fixed;           /* Membuat menu selalu menempel/mengikuti saat di-scroll */
+    top: 0; left: 0;           /* Terkunci di ujung kiri atas layar */
+    width: 100%;               /* Lebar menu memanjang penuh */
+    padding: 2rem 10%;         /* Ruang bernapas di dalam header */
     background: rgba(5, 8, 16, 0.8); /* Latar belakang gelap tembus pandang 80% */
     backdrop-filter: blur(15px); /* Memberikan efek kaca blur pada elemen di belakang header */
-    display: flex; /* Menyusun logo dan menu secara menyamping (horizontal) */
+    display: flex;             /* Menyusun logo dan menu secara menyamping (horizontal) */
     justify-content: space-between; /* Mendorong logo ke kiri mentok, dan menu ke kanan mentok */
-    align-items: center; /* Meratakan posisi logo dan menu lurus di tengah vertikal */
-    z-index: 70; /* Menaruh header di tumpukan lapisan tinggi agar tidak tertutup elemen lain */
+    align-items: center;       /* Meratakan posisi logo dan menu lurus di tengah vertikal */
+    z-index: 70;               /* Menaruh header di tumpukan lapisan tinggi agar tak tertutup */
     border-bottom: 1px solid var(--border-color-dark); /* Garis tipis pembatas di bawah header */
     transition: all 0.3s ease-in-out; /* Animasi transisi mulus saat ada perubahan */
 }
 
 .logo {
-    font-size: 2.5rem; /* Ukuran teks logo 25px */
-    color: var(--text-light); /* Warna putih */
-    font-weight: 800; /* Ketebalan font super tebal */
-    cursor: pointer; /* Kursor menjadi jari telunjuk saat disorot */
-    transition: 0.3s ease; /* Transisi animasi 0.3 detik */
-    line-height: 1.1; /* Kerapatan baris teks logo jika lebih dari satu kata */
-    display: inline-block; /* Membuat logo bertindak sebagai kotak yang fleksibel */
+    font-size: 2.5rem;         /* Ukuran teks logo 25px */
+    color: var(--text-light);  /* Warna putih */
+    font-weight: 800;          /* Ketebalan font super tebal */
+    cursor: pointer;           /* Kursor menjadi jari telunjuk saat disorot */
+    transition: 0.3s ease;     /* Transisi animasi 0.3 detik */
+    line-height: 1.1;          /* Kerapatan baris teks logo jika lebih dari satu kata */
+    display: inline-block;     /* Membuat logo bertindak sebagai kotak yang fleksibel */
 }
-
 .logo:hover { transform: scale(1.1); } /* Efek memperbesar logo sebesar 10% saat disorot mouse */
-.logo span { color: var(--main-color); font-size: 2rem; } /* Memberi warna ungu & ukuran khusus pada kata kedua logo */
+.logo span { color: var(--main-color); font-size: 2rem; } /* Memberi warna ungu & ukuran khusus kata kedua logo */
 
 .navbar a {
-    font-size: 1.6rem; /* Ukuran font menu 16px */
-    color: var(--text-light); /* Warna teks menu putih */
-    margin-left: 4rem; /* Jarak antar teks menu sebesar 40px */
-    font-weight: 500; /* Ketebalan font sedang */
-    transition: 0.3s ease; /* Transisi efek saat hover 0.3 detik */
+    font-size: 1.6rem;         /* Ukuran font menu 16px */
+    color: var(--text-light);  /* Warna teks menu putih */
+    margin-left: 4rem;         /* Jarak antar teks menu sebesar 40px */
+    font-weight: 500;          /* Ketebalan font sedang */
+    transition: 0.3s ease;     /* Transisi efek saat hover 0.3 detik */
     border-bottom: 3px solid transparent; /* Menyediakan ruang untuk garis bawah (awalnya tembus pandang) */
 }
-
 .navbar a:hover,
 .navbar a.active {
-    color: var(--main-color); /* Teks menu berubah ungu saat aktif/disorot */
+    color: var(--main-color);  /* Teks menu berubah ungu saat aktif/disorot */
     border-bottom: 3px solid var(--main-color); /* Memunculkan garis bawah ungu saat aktif/disorot */
 }
 
 #menu-icon {
-    font-size: 3.6rem; /* Ukuran ikon tiga garis (hamburger) di HP */
-    color: var(--text-light); /* Warna ikon putih */
-    display: none; /* Disembunyikan di versi Desktop (PC/Laptop) */
-    cursor: pointer; /* Kursor jari */
+    font-size: 3.6rem;         /* Ukuran ikon tiga garis (hamburger) di HP */
+    color: var(--text-light);  /* Warna ikon putih */
+    display: none;             /* Disembunyikan secara default di versi Desktop (PC/Laptop) */
+    cursor: pointer;           /* Kursor jari */
 }
 
 /* =========================================================================
-   6. BAGIAN HOME (BERANDA / HALAMAN DEPAN)
-   Fungsi: Tampilan sapaan awal dengan foto dan ringkasan profil
+   6. HALAMAN: HOME (BERANDA / HALAMAN DEPAN)
+   Fungsi: Area sapaan awal dengan teks berjalan, lencana profesi, dan foto ber-aura.
 ========================================================================= */
 .home {
     background-color: #020617; /* Warna latar sangat gelap (Midnight Blue) */
-    color: #ffffff; /* Warna dasar teks putih */
-    display: flex; /* Menyusun elemen teks dan foto bersebelahan */
-    align-items: center; /* Meratakan posisi mereka di tengah secara vertikal */
+    color: #ffffff;            /* Warna dasar teks putih */
+    display: flex;             /* Menyusun elemen teks dan foto bersebelahan */
+    align-items: center;       /* Meratakan posisi mereka di tengah secara vertikal */
     justify-content: space-between; /* Memberi jarak seimbang antara teks (kiri) dan foto (kanan) */
-    gap: 4rem; /* Jarak antara blok teks dan blok foto sebesar 40px */
-    flex-wrap: wrap; /* Mengizinkan blok patah ke bawah jika layar menyempit */
-    min-height: 110vh; /* Tinggi minimal area home 110% dari tinggi layar monitor */
-    padding-top: 12rem; /* Jarak aman atas agar tidak tertutup header yang melayang */
+    gap: 4rem;                 /* Jarak antara blok teks dan blok foto sebesar 40px */
+    flex-wrap: wrap;           /* Mengizinkan blok patah ke bawah jika layar menyempit */
+    min-height: 110vh;         /* Tinggi minimal area home 110% dari tinggi layar monitor */
+    padding-top: 12rem;        /* Jarak aman atas agar tidak tertutup header yang melayang */
 }
 
 .home #particles-js { 
-    position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 0; /* Pengaturan plugin kanvas partikel */
+    position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 0; 
 }
 
 .home-content {
-    display: flex; /* Menyusun blok sapaan */
-    flex-direction: column; /* Mengatur susunan isi sapaan berbaris vertikal ke bawah */
-    align-items: flex-start; /* Meratakan semua teks sapaan rata kiri */
-    text-align: left; /* Teks paragraf rata kiri */
-    flex: 1 1 55%; /* Kolom teks mengambil porsi 55% dari lebar layar */
-    z-index: 1; /* Posisi teks di atas kanvas partikel */
+    display: flex;             /* Menyusun blok sapaan */
+    flex-direction: column;    /* Mengatur susunan isi sapaan berbaris vertikal ke bawah */
+    align-items: flex-start;   /* Meratakan semua teks sapaan rata kiri */
+    text-align: left;          /* Teks paragraf rata kiri */
+    flex: 1 1 55%;             /* Kolom teks mengambil porsi 55% dari lebar layar */
+    z-index: 1;                /* Posisi teks di atas kanvas partikel */
 }
 
+/* Lencana Ketersediaan Proyek */
 .badge-status {
-    display: inline-flex; align-items: center; gap: 1rem; /* Kapsul status kecil "Tersedia untuk proyek" */
-    background: rgba(255, 255, 255, 0.04); /* Latar transparan 4% */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas transparan 10% */
-    border-radius: 3rem; padding: 0.8rem 2rem; /* Sudut bulat penuh & ruang di dalam kapsul */
-    font-size: 1.4rem; font-weight: 500; color: #e2e8f0; /* Gaya huruf di dalam kapsul status */
-    margin-bottom: 2.5rem; /* Jarak ke teks di bawahnya */
+    display: inline-flex; align-items: center; gap: 1rem; 
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 3rem; padding: 0.8rem 2rem; font-size: 1.4rem; font-weight: 500; 
+    color: #e2e8f0; margin-bottom: 2.5rem;
 }
-
 .badge-status .dot {
-    width: 8px; height: 8px; background: #10b981; /* Titik indikator warna hijau (Online) */
-    border-radius: 50%; box-shadow: 0 0 10px #10b981, 0 0 15px #10b981; /* Efek nyala lampu neon hijau */
+    width: 8px; height: 8px; background: #10b981; /* Titik indikator Online (Hijau) */
+    border-radius: 50%; box-shadow: 0 0 10px #10b981, 0 0 15px #10b981; 
 }
 
-.home-content h3 { font-size: 2.2rem; font-weight: 500; color: #e2e8f0; margin-bottom: 0.5rem; } /* Sapaan "Hi, I'm" */
-.home-content h1 { font-size: 6.5rem; font-weight: 800; margin-top: 0; line-height: 1.1; letter-spacing: -1px; } /* Nama Besar */
-.home-content h1 span { color: var(--main-color-light); text-shadow: 0 0 25px rgba(79, 70, 229, 0.4); } /* Efek nyala pada Gelar/Nama Belakang */
-.text-animation { font-size: 2.8rem; font-weight: 600; margin-top: 1rem; margin-bottom: 2rem; color: #cbd5e1; } /* Teks keahlian yg berganti-ganti */
-.home-content p { font-size: 1.6rem; color: #94a3b8; line-height: 1.8; max-width: 580px; margin-bottom: 4rem; } /* Paragraf biografi singkat */
+/* Tipografi Beranda */
+.home-content h3 { font-size: 2.2rem; font-weight: 500; color: #e2e8f0; margin-bottom: 0.5rem; } 
+.home-content h1 { font-size: 6.5rem; font-weight: 800; margin-top: 0; line-height: 1.1; letter-spacing: -1px; } 
+.home-content h1 span { color: var(--main-color-light); text-shadow: 0 0 25px rgba(79, 70, 229, 0.4); } 
+.text-animation { font-size: 2.8rem; font-weight: 600; margin-top: 1rem; margin-bottom: 2rem; color: #cbd5e1; } 
+.home-content p { font-size: 1.6rem; color: #94a3b8; line-height: 1.8; max-width: 580px; margin-bottom: 4rem; } 
 
-/* --- Tag Label Profesi/Keahlian (Urban Planner, dll) --- */
+/* Tag Profesi (Urban Planner, GIS, Surveyor) */
 .role-tags {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; /* Tata letak lencana profesi */
-    margin-bottom: 2.5rem; margin-top: 1.5rem;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; margin-top: 1.5rem;
 }
-.role-item {
-    display: flex; align-items: center; gap: 0.8rem; /* Menyusun ikon dan teks lencana */
-    font-size: 1.4rem; color: #e2e8f0; font-weight: 400;
-}
+.role-item { display: flex; align-items: center; gap: 0.8rem; font-size: 1.4rem; color: #e2e8f0; font-weight: 400; }
 .role-item .icon-box {
-    display: flex; justify-content: center; align-items: center; /* Kotak bundar untuk ikon profesi */
-    width: 3.2rem; height: 3.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50%;
-    background: rgba(255, 255, 255, 0.02);
+    display: flex; justify-content: center; align-items: center; width: 3.2rem; height: 3.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50%; background: rgba(255, 255, 255, 0.02);
 }
-.role-item .icon-box i { color: var(--main-color-light); font-size: 1.6rem; } /* Ikon (Globe, Map) di dalam kotak */
-.role-dot { color: var(--main-color); font-size: 1.5rem; } /* Titik pemisah antar profesi */
+.role-item .icon-box i { color: var(--main-color-light); font-size: 1.6rem; } 
+.role-dot { color: var(--main-color); font-size: 1.5rem; } 
 
-/* --- Tombol Aksi (CTA) --- */
-.btn-group { display: flex; gap: 1.5rem; align-items: center; } /* Membariskan tombol "Download CV" dan "Hubungi" */
+/* Tombol Download CV & Hubungi */
+.btn-group { display: flex; gap: 1.5rem; align-items: center; } 
 .btn {
-    padding: 1.4rem 3.5rem; border-radius: 3rem; font-size: 1.6rem; /* Desain fisik dasar semua tombol */
+    padding: 1.4rem 3.5rem; border-radius: 3rem; font-size: 1.6rem; 
     font-weight: 600; transition: all 0.3s ease-in-out; cursor: pointer;
     display: inline-flex; align-items: center; gap: 1rem;
 }
-.btn-primary { background: var(--main-gradient); color: #ffffff; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3); } /* Tombol Utama bergradasi */
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(79, 70, 229, 0.5); } /* Efek melayang saat disorot */
-.btn-secondary { background: #020617; border: 1px solid var(--main-color); color: #ffffff; } /* Tombol Sekunder transparan bergaris */
+.btn-primary { background: var(--main-gradient); color: #ffffff; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3); } 
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(79, 70, 229, 0.5); }
+.btn-secondary { background: #020617; border: 1px solid var(--main-color); color: #ffffff; } 
 .btn-secondary:hover { background: rgba(255, 255, 255, 0.05); border-color: #ffffff; transform: translateY(-3px); }
 
-/* --- Ikon Sosial Media --- */
-.social-icons {
-    display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 1.5rem; width: 100%; /* Susunan ikon sosmed */
-}
+/* Sosial Media (Kiri Bawah Beranda) */
+.social-icons { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 1.5rem; width: 100%; }
 .social-icons a {
-    display: inline-flex; justify-content: center; align-items: center; /* Membentuk lingkaran ikon sosial media */
-    width: 4.5rem; height: 4.5rem; background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15); font-size: 2.2rem;
+    display: inline-flex; justify-content: center; align-items: center; width: 4.5rem; height: 4.5rem; 
+    background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); font-size: 2.2rem;
     border-radius: 50%; color: #cbd5e1; margin: 0; transition: 0.3s ease-in-out;                      
 }
 .social-icons a:hover {
-    background-color: var(--main-color); border-color: var(--main-color); color: white; /* Lingkaran berubah ungu saat disorot */
+    background-color: var(--main-color); border-color: var(--main-color); color: white; 
     transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
 }
 
-/* --- Foto Profil & Efek Lingkaran Kosmik --- */
+/* Foto Profil dengan Efek Aura Kosmik */
 .home-img { 
-    flex: 1 1 40%; text-align: center; position: relative; z-index: 1; /* Porsi kotak foto memakan 40% layar kanan */
+    flex: 1 1 40%; text-align: center; position: relative; z-index: 1; 
     display: flex; justify-content: center; align-items: center;
 }
-.home-img img { width: 100%; max-width: 420px; position: relative; z-index: 2; } /* Pembatasan lebar maksimal foto */
+.home-img img { width: 100%; max-width: 420px; position: relative; z-index: 2; } 
 .home-img::before { 
-    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); /* Efek asap/cahaya blur di belakang foto */
-    width: 150%; height: 150%;
-    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, rgba(79, 70, 229, 0.1) 45%, transparent 70%);
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); /* Asap blur di belakang foto */
+    width: 150%; height: 150%; background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, rgba(79, 70, 229, 0.1) 45%, transparent 70%);
     filter: blur(25px); z-index: 0; pointer-events: none;
 }
-
 .aura-container {
-    position: relative; width: 100%; max-width: 420px; aspect-ratio: 1; /* Wadah utama foto dan cincin pelindungnya */
+    position: relative; width: 100%; max-width: 420px; aspect-ratio: 1; 
     display: flex; justify-content: center; align-items: center; z-index: 2;
 }
 .aura-ring {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; /* Cincin cahaya biru neon membungkus foto */
-    border: 4px solid rgba(0, 229, 255, 0.6);
-    box-shadow: 0 0 35px rgba(0, 229, 255, 0.5), inset 0 0 25px rgba(0, 229, 255, 0.3);
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; 
+    border: 4px solid rgba(0, 229, 255, 0.6); box-shadow: 0 0 35px rgba(0, 229, 255, 0.5), inset 0 0 25px rgba(0, 229, 255, 0.3);
     z-index: 1; pointer-events: none;
 }
 .aura-container img {
-    width: 88%; height: 88%; object-fit: cover; border-radius: 50%; /* Gambar dipotong jadi lingkaran menempati 88% cincin luar */
+    width: 88%; height: 88%; object-fit: cover; border-radius: 50%; 
     position: relative; z-index: 2; background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* --- Ikon Satelit Orbit (Globe, Drone) --- */
+/* Satelit Icon yang Melayang Mengelilingi Foto */
 .orbit-icon {
-    position: absolute; width: 5rem; height: 5rem; background: rgba(5, 8, 16, 0.7); /* Satelit kecil yang melayang di sekitar foto */
+    position: absolute; width: 5rem; height: 5rem; background: rgba(5, 8, 16, 0.7); 
     backdrop-filter: blur(8px); border: 1px solid rgba(129, 140, 248, 0.4);
     border-radius: 50%; display: flex; justify-content: center; align-items: center;
     font-size: 2.2rem; color: var(--main-color-light); z-index: 3;
-    box-shadow: 0 0 15px rgba(129, 140, 248, 0.2);
-    animation: floatIcon 4s ease-in-out infinite; /* Menjalankan animasi melayang selamanya */
+    box-shadow: 0 0 15px rgba(129, 140, 248, 0.2); animation: floatIcon 4s ease-in-out infinite; 
 }
-.icon-globe { top: 5%; right: 0%; animation-delay: 0s; } /* Koordinat satelit pertama */
-.icon-map { bottom: 12%; left: -5%; animation-delay: 1s; } /* Koordinat satelit kedua */
-.icon-drone { bottom: 5%; right: 0%; animation-delay: 2s; } /* Koordinat satelit ketiga */
+.icon-globe { top: 5%; right: 0%; animation-delay: 0s; } 
+.icon-map { bottom: 12%; left: -5%; animation-delay: 1s; } 
+.icon-drone { bottom: 5%; right: 0%; animation-delay: 2s; } 
 
 @keyframes floatIcon { 
-    0%, 100% { transform: translateY(0); } /* Rumus animasi naik turun 12 pixel untuk satelit */
+    0%, 100% { transform: translateY(0); } /* Animasi naik turun perlahan */
     50% { transform: translateY(-12px); } 
 }
 
 /* =========================================================================
-   7. BAGIAN ABOUT (TENTANG SAYA)
-   Fungsi: Memaparkan biografi dan detail identitas personal (Tema Terang)
+   7. HALAMAN: ABOUT (TENTANG SAYA)
+   Fungsi: Memaparkan biografi dan detail personal (Tema Terang Lavender).
 ========================================================================= */
-.about { background: var(--bg-light); color: var(--text-dark); } /* Warna dasar section About (Putih Lavender) */
-.about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; } /* Membagi area jadi 2 kolom: Kiri Teks, Kanan Foto */
-.about-content h3 { color: var(--main-color); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; } /* Sub-judul kecil */
-.about-content h2 { font-size: 4.5rem; margin-bottom: 2rem; color: var(--text-dark); } /* Judul Utama About */
-.about-content p { font-size: 1.6rem; color: #4b5563; line-height: 1.8; margin-bottom: 3rem; text-align: justify; } /* Paragraf riwayat hidup */
-.about-details { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; font-size: 1.2rem; color: var(--text-dark); text-align: left; } /* Deretan Info Diri (Nama, Umur, dsb) */
-.detail-item { display: flex; align-items: center; gap: 1.5rem; font-size: 1.6rem; font-weight: 500; } /* Baris per item data diri */
-.detail-item i { color: var(--main-color); font-size: 2rem; } /* Ikon penanda data diri */
+.about { background: var(--bg-light); color: var(--text-dark); } 
+.about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; } /* 2 Kolom: Kiri Teks, Kanan Foto */
+.about-content h3 { color: var(--main-color); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; } 
+.about-content h2 { font-size: 4.5rem; margin-bottom: 2rem; color: var(--text-dark); } 
+.about-content p { font-size: 1.6rem; color: #4b5563; line-height: 1.8; margin-bottom: 3rem; text-align: justify; } 
+.about-details { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; font-size: 1.2rem; color: var(--text-dark); text-align: left; } 
+.detail-item { display: flex; align-items: center; gap: 1.5rem; font-size: 1.6rem; font-weight: 500; } 
+.detail-item i { color: var(--main-color); font-size: 2rem; } 
 
-.about-img-box { position: relative; z-index: 1; } /* Kotak pembungkus foto about */
+/* Kotak Foto About & Kartu Melayang */
+.about-img-box { position: relative; z-index: 1; } 
 .about-img-box::before {
-    content: ''; position: absolute; top: 25px; right: -25px; /* Kotak bayangan gradasi warna ungu/biru di belakang foto about */
+    content: ''; position: absolute; top: 25px; right: -25px; /* Bayangan gradasi ungu di belakang foto */
     width: 100%; height: 100%; background: var(--main-gradient);
     border-radius: 3rem; z-index: -1; box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
 }
-.about-img-box img { width: 100%; border-radius: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; z-index: 2; } /* Foto utama About */
-
-/* Kotak informasi tambahan yang melayang menabrak batas foto about */
+.about-img-box img { width: 100%; border-radius: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; z-index: 2; } 
 .floating-card {
     position: absolute; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
     padding: 2rem; border-radius: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     border: 1px solid rgba(255,255,255,0.5); z-index: 3;
 }
-.card-education { top: 10%; right: -10%; width: 250px; } /* Kartu Edukasi (Atas Kanan) */
-.card-interests { bottom: -5%; right: 10%; width: 300px; } /* Kartu Hobi (Bawah Kanan) */
+.card-education { top: 10%; right: -10%; width: 250px; } 
+.card-interests { bottom: -5%; right: 10%; width: 300px; } 
 
 /* =========================================================================
-   8. BAGIAN SERVICES (KEAHLIAN / LAYANAN)
-   Fungsi: Kotak-kotak (grid) yang menampilkan rincian skill (Tema Gelap)
+   8. HALAMAN: SERVICES (KEAHLIAN)
+   Fungsi: Menampilkan grid kemampuan/skill teknis (Tema Gelap).
 ========================================================================= */
-.services { background: var(--bg-dark); color: var(--text-light); } /* Kembali ke latar gelap */
-.services h2 { margin-bottom: 5rem; font-size: 4rem; text-align: center; color: var(--text-light); } /* Judul Services */
+.services { background: var(--bg-dark); color: var(--text-light); } 
+.services h2 { margin-bottom: 5rem; font-size: 4rem; text-align: center; color: var(--text-light); } 
 .services-container {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: stretch; gap: 2.5rem; /* Pola keramik otomatis menyesuaikan lebar layar */
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: stretch; gap: 2.5rem; 
 }
 .service-box {
-    background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); /* Desain fisik kartu kemampuan */
+    background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); 
     border-radius: 2rem; cursor: pointer; transition: 0.3s ease-in-out;
     padding: 3rem 2rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 250px;
 }
 .service-box:hover {
-    background: rgba(255, 255, 255, 0.05); border-color: var(--main-color); /* Efek bingkai menyala ungu saat kartu disorot */
+    background: rgba(255, 255, 255, 0.05); border-color: var(--main-color); /* Efek nyala ungu saat dihover */
     transform: translateY(-5px); box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
 }
-.service-info h4 { font-size: 2.5rem; font-weight: 800; line-height: 1.5; color: var(--text-light); margin-bottom: 1rem; } /* Nama Skill */
-.service-info p { font-size: 1.5rem; font-weight: 400; line-height: 1.6; color: var(--text-muted); } /* Deskripsi panjang skill */
+.service-info h4 { font-size: 2.5rem; font-weight: 800; line-height: 1.5; color: var(--text-light); margin-bottom: 1rem; } 
+.service-info p { font-size: 1.5rem; font-weight: 400; line-height: 1.6; color: var(--text-muted); } 
 
 /* =========================================================================
-   9. BAGIAN PROJECTS (PENGALAMAN / PORTOFOLIO)
-   Fungsi: Menampilkan gambar dan deskripsi proyek yang pernah dikerjakan
+   9. HALAMAN: PROJECTS (PORTOFOLIO) & CERTIFICATES
+   Fungsi: Menampilkan koleksi proyek & sertifikat secara Grid/Gallery (Tema Terang).
 ========================================================================= */
-.recent-projects { background: var(--bg-light); color: var(--text-dark); } /* Area kembali ke nuansa Terang */
-.section-header { text-align: center; margin-bottom: 5rem; } /* Penengah posisi judul bab */
-.section-header h3 { color: var(--main-color); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; } /* Label kecil 'Portfolio' */
-.section-header h2 { font-size: 4rem; color: var(--text-dark); } /* Judul Besar Portfolio */
-.projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; } /* Tata letak grid pembungkus kartu proyek */
+.recent-projects { background: var(--bg-light); color: var(--text-dark); } 
+.section-header { text-align: center; margin-bottom: 5rem; } 
+.section-header h3 { color: var(--main-color); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; } 
+.section-header h2 { font-size: 4rem; color: var(--text-dark); } 
+.projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; } 
 
+/* Desain Kartu Proyek */
 .project-card {
-    background: var(--card-bg-light); border: 1px solid rgba(0,0,0,0.05); /* Desain kotak/bingkai per proyek */
+    background: var(--card-bg-light); border: 1px solid rgba(0,0,0,0.05); 
     padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.4s ease;
 }
-.project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-color); } /* Kotak meloncat & punya garis bawah ungu saat dihover */
-.project-img { width: 100%; height: 200px; object-fit: cover; border-radius: 1.5rem; margin-bottom: 2rem; } /* Pengaturan potongan gambar/thumbnail proyek */
-
-.project-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; } /* Baris judul PT & Ikon Panah Kanan */
-.project-info h3 { font-size: 2.2rem; color: var(--text-dark); } /* Nama Perusahaan Proyek */
+.project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-color); } 
+.project-img { width: 100%; height: 200px; object-fit: cover; border-radius: 1.5rem; margin-bottom: 2rem; } 
+.project-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; } 
+.project-info h3 { font-size: 2.2rem; color: var(--text-dark); } 
 .project-info a {
-    width: 4rem; height: 4rem; background: var(--main-color); color: white; /* Lingkaran tombol panah menuju link luar */
-    display: flex; justify-content: center; align-items: center;
-    border-radius: 50%; font-size: 2rem; transition: 0.3s;
+    width: 4rem; height: 4rem; background: var(--main-color); color: white; /* Tombol panah menuju detail gallery */
+    display: flex; justify-content: center; align-items: center; border-radius: 50%; font-size: 2rem; transition: 0.3s;
 } 
-.project-info a:hover { background: var(--text-dark); } /* Lingkaran panah berubah gelap jika ditekan */
-.project-desc { font-size: 1.4rem; color: #4b5563; margin-bottom: 2rem; } /* Paragraf uraian hasil proyek */
+.project-info a:hover { background: var(--text-dark); } 
+.project-desc { font-size: 1.4rem; color: #4b5563; margin-bottom: 2rem; } 
 
-/* Tag/Lencana teknologi yang digunakan (ArcGIS, Drone, dll) */
+/* Label Teknologi (Tech Stack) */
 .tech-stack { display: flex; flex-wrap: wrap; gap: 1rem; } 
 .tech-stack span {
     font-size: 1.2rem; padding: 0.5rem 1.5rem; background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0,0,0,0.1); border-radius: 2rem; color: var(--text-dark);
 } 
 
+/* Galeri Detail Sertifikat */
+.gallery-section { background: var(--bg-light); color: var(--text-dark); } 
+.gallery-section .heading { font-size: 4rem; color: var(--text-dark); margin-bottom: 1rem; } 
+.gallery-section .heading span { color: var(--main-color); } 
+.gallery-desc { font-size: 1.6rem; color: #4b5563; margin-bottom: 5rem; } 
+.btn-back {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2.5rem; 
+    background: var(--main-color); color: white; font-size: 1.6rem; font-weight: 600;
+    border-radius: 4rem; margin-bottom: 2rem; transition: 0.3s;
+} 
+.btn-back:hover { transform: translateX(-5px); box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4); }
+.gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2.5rem; justify-content: center; justify-items: center; clear: both; margin-top: 3rem; border-radius: 2.5rem;
+} 
+.gallery-grid img {
+    width: 100%; height: 250px; object-fit: cover; border-radius: 1.5rem; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s ease-in-out; cursor: pointer;
+} 
+.gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); } 
+.gallery-group { display: none; } 
+.gallery-group.active { display: block; } 
+
 /* =========================================================================
-   10. BAGIAN EDUCATION (RIWAYAT PENDIDIKAN)
-   Fungsi: Peta alur riwayat sekolah (Timeline) dengan garis neon biru
+   10. HALAMAN: EDUCATION (RIWAYAT PENDIDIKAN)
+   Fungsi: Peta alur riwayat sekolah (Timeline horizontal) dengan garis neon.
 ========================================================================= */
-.education { background: var(--bg-dark); color: var(--text-light); } /* Nuansa Gelap Kosmik */
-.education h2 { margin-bottom: 5rem; font-size: 4rem; text-align: center; position: relative; z-index: 2; } /* Judul Education */
+.education { background: var(--bg-dark); color: var(--text-light); } 
+.education h2 { margin-bottom: 5rem; font-size: 4rem; text-align: center; position: relative; z-index: 2; } 
 
 .timeline-horizontal {
-    display: grid; grid-template-columns: repeat(3, 1fr); position: relative; /* Membuat 3 stasiun sekolah menyamping di Desktop */
+    display: grid; grid-template-columns: repeat(3, 1fr); position: relative; /* 3 Blok per baris */
     z-index: 2; max-width: 1200px; margin: 5rem auto 0; row-gap: 50px;
 }
-.timeline-horizontal::before { display: none; } /* Membunuh garis vertikal sisa versi kuno */
-.timeline-item-h { position: relative; padding-right: 2rem; width: 100%; height: 220px; } /* Fondasi kolom stasiun edukasi */
+.timeline-horizontal::before { display: none; } 
+.timeline-item-h { position: relative; padding-right: 2rem; width: 100%; height: 220px; } 
 
-/* --- Trik Melukis Garis Neon Penunjuk Arah Antar Kampus --- */
+/* Melukis Garis Neon Penunjuk Arah Antar Kampus */
 .timeline-item-h:nth-child(1)::after, 
 .timeline-item-h:nth-child(2)::after,
 .timeline-item-h:nth-child(4)::after, 
 .timeline-item-h:nth-child(5)::after {
-    content: ''; position: absolute; top: 28px; left: 60px; width: calc(100% - 60px); height: 3px; /* Garis horizontal lurus nyambung */
+    content: ''; position: absolute; top: 28px; left: 60px; width: calc(100% - 60px); height: 3px; 
     background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); z-index: 1;
 }
-
 .timeline-item-h:nth-child(3)::before {
-    content: ''; position: absolute; top: 28px; left: 60px; width: calc(100% - 150px); height: 140px; /* Tikungan S dari baris 1 terjun ke baris 2 */
+    content: ''; position: absolute; top: 28px; left: 60px; width: calc(100% - 150px); height: 140px; /* Tikungan S ke baris bawah */
     border-top: 3px solid var(--neon-blue); border-right: 3px solid var(--neon-blue); border-bottom: 3px solid var(--neon-blue);
     border-radius: 0 30px 30px 0; filter: drop-shadow(0 0 5px var(--neon-blue)) drop-shadow(0 0 10px var(--neon-blue)); z-index: 1;
 }
-
 .timeline-item-h:nth-child(3)::after {
-    content: ''; position: absolute; top: 170px; left: calc(-200% - 5px); right: calc(100% - 60px); height: 3px; /* Kawat menjalar jauh kembali ke sisi paling kiri */
+    content: ''; position: absolute; top: 170px; left: calc(-200% - 5px); right: calc(100% - 60px); height: 3px; /* Garis balik ke kiri */
     background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); z-index: 1;
 }
-
 .timeline-item-h:nth-child(4)::before {
     content: ''; position: absolute; top: -100px; left: -30px; width: 30px; height: 131px; /* Melilit turun menyambung sasaran terakhir */
     border-top: 3px solid var(--neon-blue); border-left: 3px solid var(--neon-blue); border-bottom: 3px solid var(--neon-blue);
@@ -396,326 +398,291 @@ section {
     justify-content: center; align-items: center; font-size: 2.5rem; color: var(--neon-blue);
     z-index: 2; margin-bottom: 1.5rem; box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), inset 0 0 10px rgba(0, 229, 255, 0.2);
 }
-
-.timeline-date-h { font-size: 1.4rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; } /* Tahun sekolah */
-.timeline-content-h h3 { font-size: 1.8rem; color: var(--text-light); margin-bottom: 0.5rem; } /* Nama Kampus/Sekolah */
-.timeline-content-h p { font-size: 1.3rem; color: var(--text-muted); line-height: 1.5; } /* Nama Jurusan */
-
-/* =========================================================================
-   11. BAGIAN SERTIFIKAT / GALERI DETIL
-   Fungsi: Halaman/area untuk menampilkan koleksi sertifikat secara grid
-========================================================================= */
-.gallery-section { background: var(--bg-light); color: var(--text-dark); } /* Warna dasar halaman galeri */
-.gallery-section .heading { font-size: 4rem; color: var(--text-dark); margin-bottom: 1rem; } /* Judul area galeri */
-.gallery-section .heading span { color: var(--main-color); } /* Aksen ungu pada judul */
-.gallery-desc { font-size: 1.6rem; color: #4b5563; margin-bottom: 5rem; } /* Penjelasan singkat sebelum lihat gambar */
-
-.btn-back {
-    display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2.5rem; /* Tombol kembali ke Beranda */
-    background: var(--main-color); color: white; font-size: 1.6rem; font-weight: 600;
-    border-radius: 4rem; margin-bottom: 2rem; transition: 0.3s;
-} 
-.btn-back:hover { transform: translateX(-5px); box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4); } /* Efek geser mundur ke kiri */
-
-.gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Pola kotak foto sertifikat */
-    gap: 2.5rem; justify-content: center; justify-items: center; clear: both; margin-top: 3rem;
-    border-radius: 2.5rem;
-} 
-.gallery-grid img {
-    width: 100%; height: 250px; object-fit: cover; border-radius: 1.5rem; /* Foto sertifikat yang presisi tidak gepeng */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s ease-in-out; cursor: pointer;
-} 
-.gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); } /* Foto membesar sedikit saat dipelototi mouse */
-.gallery-group { display: none; } /* Menyembunyikan kelompok album lain secara default */
-.gallery-group.active { display: block; } /* Menampilkan album ketika kelas Active disuntik via JS */
+.timeline-date-h { font-size: 1.4rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; } 
+.timeline-content-h h3 { font-size: 1.8rem; color: var(--text-light); margin-bottom: 0.5rem; } 
+.timeline-content-h p { font-size: 1.3rem; color: var(--text-muted); line-height: 1.5; } 
 
 /* =========================================================================
-   12. BAGIAN TESTIMONIALS / KOLABORASI
-   Fungsi: Memajang logo klien/partner kementerian yang pernah bekerja sama
+   11. HALAMAN: TESTIMONIALS / KOLABORASI
+   Fungsi: Memajang logo klien kementerian/perusahaan.
 ========================================================================= */
-.testimonials { background: var(--bg-dark); color: var(--text-light); } /* Tema dinding hitam kelam */
-.testimonials h2 { margin-bottom: 1rem; font-size: 4rem; text-align: center; } /* Judul bab Partner */
+.testimonials { background: var(--bg-dark); color: var(--text-light); } 
+.testimonials h2 { margin-bottom: 1rem; font-size: 4rem; text-align: center; } 
 .testimonials-box { display: flex; align-items: center; justify-content: center; flex-direction: column; } 
 .testimonials .heading { margin-bottom: 5rem; font-size: 4rem; text-align: center; } 
 
-.wrapper { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3rem; width: 100%; } /* Jajaran rapi 5 logo berjejer horizontal di Desktop */
+.wrapper { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3rem; width: 100%; } /* Jajaran 5 logo berjejer horizontal di Desktop */
 
 .testimonial-item {
-    min-height: 250px; width: 100%; background: var(--bg-light); /* Kartu logo dicat putih agar logo perusahaannya kontras */
+    min-height: 250px; width: 100%; background: var(--bg-light); /* Kartu logo warna putih */
     border: 3px solid rgba(238, 238, 238, 0.2); border-radius: 2rem;
     padding: 30px 20px; cursor: pointer; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center; gap: 1.5rem;
     color: black; transition: 0.4s ease-in-out; position: relative; z-index: 2;
 }
 .testimonial-item:hover {
-    border: 3px solid var(--main-color); transform: translateY(-10px) scale(1.03); /* Kartu PT membesar dan naik saat kursor mendekat */
+    border: 3px solid var(--main-color); transform: translateY(-10px) scale(1.03); 
     box-shadow: 0 0 30px rgba(79, 70, 229, 0.3);
 }
-.testimonial-item h2 { font-size: 1.8rem; } /* Nama Lembaga / Perusahaan */
-.testimonial-item p { font-size: 1.3rem; } /* Tipe Pekerjaan */
+.testimonial-item h2 { font-size: 1.8rem; } 
+.testimonial-item p { font-size: 1.3rem; } 
 .testimonial-item img {
-    width: 100px; height: 100px; object-fit: contain; border-radius: 1rem; /* Logo dilindungi agar tidak terpotong (contain) */
+    width: 100px; height: 100px; object-fit: contain; border-radius: 1rem; /* Logo proporsional tidak terpotong */
     border-color: #020617; border-width: 2px; border-style: solid;
 } 
 
 /* =========================================================================
-   13. BAGIAN CONTACT (HUBUNGI SAYA)
-   Fungsi: Formulir kirim pesan untuk para klien/HRD
+   12. HALAMAN: CONTACT (HUBUNGI SAYA)
+   Fungsi: Formulir kirim pesan.
 ========================================================================= */
-.contact { background: var(--bg-light); color: var(--text-dark); } /* Nuansa terang cerah */
-.contact h2 { margin-bottom: 3rem; font-size: 4rem; text-align: center; } /* Judul Kirim Pesan */
+.contact { background: var(--bg-light); color: var(--text-dark); } 
+.contact h2 { margin-bottom: 3rem; font-size: 4rem; text-align: center; } 
 
 .contact form {
-    display: flex; align-items: center; justify-content: center; gap: 3rem; /* Menyusun susunan pipa formulir */
+    display: flex; align-items: center; justify-content: center; gap: 3rem; 
     margin: 5rem auto; text-align: center; width: 100%; max-width: 800px;
 } 
-.contact form .input-box { display: flex; justify-content: center; flex-wrap: wrap; width: 100%; } /* Wadah penampung kolom isian */
+.contact form .input-box { display: flex; justify-content: center; flex-wrap: wrap; width: 100%; } 
 
 .contact form .input-box input,
 .contact form textarea {
-    width: 100%; padding: 2.5rem; font-size: 1.6rem; color: var(--text-dark); /* Dimensi luas empuk untuk mengetik teks */
+    width: 100%; padding: 2.5rem; font-size: 1.6rem; color: var(--text-dark); 
     background: #ffffff; border-radius: 2rem; border: 1px solid rgba(0,0,0,0.1);
-    margin: 1.5rem 0; resize: none; box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* Mematikan fitur tarik paksa kolom besar textarea */
+    margin: 1.5rem 0; resize: none; box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
 }
-.contact form .btn { margin-top: 2rem; } /* Jarak antara kolom pesan dengan tombol Kirim */
+.contact form .btn { margin-top: 2rem; } 
 
 /* =========================================================================
-   14. FOOTER (BAGIAN BAWAH HALAMAN / KAKI)
-   Fungsi: Menutup halaman dengan hak cipta dan tautan sosial
+   13. HALAMAN: FOOTER (KOP BAWAH HALAMAN)
+   Fungsi: Menutup halaman dengan link navigasi dan hak cipta.
 ========================================================================= */
 .footer {
-    position: relative; bottom: 0; width: 100%; padding: 40px 0; /* Plester lantai paling bawah */
+    position: relative; bottom: 0; width: 100%; padding: 40px 0; 
     background: var(--bg-light); border-top: 1px solid var(--border-color-dark);
 } 
-.footer .social { text-align: center; padding-bottom: 25px; } /* Lingkaran Sosmed Kaki */
+.footer .social { text-align: center; padding-bottom: 25px; } 
 .footer .social a {
-    font-size: 25px; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.2); /* Tombol IG/FB/LinkedIN */
+    font-size: 25px; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.2); 
     width: 45px; height: 45px; line-height: 45px; display: inline-block;
     text-align: center; border-radius: 50%; margin: 0 10px; transition: 0.3s ease-in-out;
 } 
 .footer .social a:hover {
-    transform: scale(1.1) translateY(-5px); background: var(--main-color); /* Berubah menyala ungu saat disentuh */
+    transform: scale(1.1) translateY(-5px); background: var(--main-color); 
     border-color: var(--main-color); color: white;
 } 
-.footer ul { margin-top: 0; padding: 0; font-size: 1.6rem; line-height: 1.6; margin-bottom: 0; text-align: center; } /* Teks Link Singkat Bawah */
+.footer ul { margin-top: 0; padding: 0; font-size: 1.6rem; line-height: 1.6; margin-bottom: 0; text-align: center; } 
 .footer ul li { display: inline-block; padding: 0 15px; } 
 .footer ul li a { color: var(--text-muted); transition: 0.3s; } 
 .footer ul li a:hover { color: var(--main-color); } 
-.footer .copyright { margin-top: 30px; text-align: center; font-size: 1.4rem; color: var(--text-dark); } /* Copyright Hak Cipta */
+.footer .copyright { margin-top: 30px; text-align: center; font-size: 1.4rem; color: var(--text-dark); } 
 
 /* =========================================================================
-   15. LIGHTBOX & CV POPUP 
-   Fungsi: Jendela pop up tersembunyi yang muncul mendadak (Overlay Hitam)
+   14. KOMPONEN: LIGHTBOX & CV POPUP 
+   Fungsi: Jendela tersembunyi yang muncul untuk download CV atau lihat foto.
 ========================================================================= */
 .lightbox, .cv-popup {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; /* Gelap gulita menutupi monitor, aslinya disembunyikan (none) */
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; /* Gelap menutupi layar penuh */
     background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
-    justify-content: center; align-items: center; z-index: 100000; /* Level lapisan mutlak teratas menyandera layar */
+    justify-content: center; align-items: center; z-index: 100000; 
     opacity: 0; transition: opacity 0.3s ease;
 }
-.lightbox.show, .cv-popup.show { display: flex; opacity: 1; } /* JRENG! Muncul jika ditambah class .show */
+.lightbox.show, .cv-popup.show { display: flex; opacity: 1; } 
 
 .lightbox-content, .cv-popup-content {
-    max-width: 90%; max-height: 90%; border-radius: 1.5rem; animation: zoomIn 0.3s ease-out; /* Animasi kardus loncat mekar */
+    max-width: 90%; max-height: 90%; border-radius: 1.5rem; animation: zoomIn 0.3s ease-out; 
 } 
 .cv-popup-content {
-    background: var(--bg-light); padding: 4rem; width: 100%; max-width: 500px; /* Boks putih surat untuk download CV */
+    background: var(--bg-light); padding: 4rem; width: 100%; max-width: 500px; 
     text-align: center; position: relative;
 } 
 .close-lightbox, .close-cv-popup {
-    position: absolute; top: 30px; right: 40px; color: #ffffff; /* Simbol silang 'X' pencetak keluar area */
+    position: absolute; top: 30px; right: 40px; color: #ffffff; /* Tombol X untuk close */
     font-size: 4rem; cursor: pointer; z-index: 100001; transition: 0.3s;
 } 
-.close-cv-popup { color: var(--text-dark); } /* Tombol silang untuk CV sengaja digelapkan agar terlihat di latar terang */
-.close-lightbox:hover, .close-cv-popup:hover { color: var(--main-color); transform: scale(1.2); } /* Tombol silang membesar dan jadi ungu */
+.close-cv-popup { color: var(--text-dark); } 
+.close-lightbox:hover, .close-cv-popup:hover { color: var(--main-color); transform: scale(1.2); } 
 
 @keyframes zoomIn { 
-    from { transform: scale(0.7); opacity: 0; } /* Keyframe mekar dari kecil 70% */
-    to { transform: scale(1); opacity: 1; } /* Selesai membesar utuh 100% */
+    from { transform: scale(0.7); opacity: 0; } 
+    to { transform: scale(1); opacity: 1; } 
 }
 
-/* Tombol rahasia untuk memunculkan sisa proyek yang disembunyikan */
+/* Tombol Load More Proyek */
 .see-more-container { text-align: center; margin-top: 4rem; width: 100%; } 
-.see-more-btn { display: none; } /* Default disembunyikan di Desktop, akan dinyalakan di Mobile */
+.see-more-btn { display: none; } 
 
 /* =========================================================================
-   16. RESPONSIVE DESIGN (MEDIA QUERIES)
-   Fungsi: Kumpulan kode penyetelan agar web berubah susunannya saat dibuka di Layar Kecil (Tablet/HP)
+   15. RESPONSIVE DESIGN: LAYAR TABLET (Maks. 991px)
+   Fungsi: Penyesuaian layout ketika dibuka di tablet atau HP posisi rebah (Landscape).
 ========================================================================= */
-
-/* --- 1. UNTUK LAYAR TABLET & HP LEBAR PATAH MIRING (Maksimal Lebar 991px) --- */
 @media (max-width: 991px) {
     .home { 
-        flex-direction: column-reverse; justify-content: center; text-align: center; /* Susunan dibalik, Teks dibawa ke bawah Foto! */
+        flex-direction: column-reverse; justify-content: center; text-align: center; /* Foto pindah ke atas teks */
         padding-top: 13rem; padding-bottom: 8rem; gap: 4rem; 
     } 
-    .home-content { align-items: center; text-align: center; flex: 1 1 100%; } /* Memaksa teks sapaan lurus rata tengah layar */
+    .home-content { align-items: center; text-align: center; flex: 1 1 100%; } 
     .home-content p { text-align: center; margin-bottom: 3rem; }
-    .role-tags { justify-content: center; gap: 1.2rem; margin-bottom: 3rem; } /* Deretan profesi kumpul di pusat */
+    .role-tags { justify-content: center; gap: 1.2rem; margin-bottom: 3rem; } 
     .home-img { 
         flex: 1 1 100%; display: flex; justify-content: center; 
         align-items: center; margin-bottom: 1.5rem; 
     }
-    .aura-container { width: 260px; height: 260px; } /* Lingkaran neon dikecilkan separuh nyawa agar tak nabrak kiri kanan pinggir HP */
-    .orbit-icon { width: 4.2rem; height: 4.2rem; font-size: 1.8rem; display: none !important; } /* MUSNAH! Ikon melayang Drone dll dimatikan agar bersih di HP */
+    .aura-container { width: 260px; height: 260px; } /* Lingkaran aura dikecilkan sedikit */
+    .orbit-icon { width: 4.2rem; height: 4.2rem; font-size: 1.8rem; display: none !important; } /* Sembunyikan ikon melayang */
     
+    /* Menu Desktop diubah jadi Dropdown Mobile */
     .navbar {
-        position: absolute; top: 100%; right: 0%; width: 55%; padding: 1rem 3%; /* Menu Navigasi Sembunyi, Siap turun (Dropdown) dari atas kanan HP */
+        position: absolute; top: 100%; right: 0%; width: 55%; padding: 1rem 3%; 
         background: rgba(5, 8, 16, 0.96); backdrop-filter: blur(20px); display: none;
     }
-    .navbar.active { display: block; } /* Dimunculkan jika tombol tiga baris diklik JS */
-    .navbar a { display: block; margin: 3rem 0; font-size: 1.8rem; } /* Link menu berbaris rapi bertumpuk ke bawah */
-    #menu-icon { display: block; } /* TAMPILKAN! Tombol hamburger garis 3 kini memegang kendali penuh di HP */
+    .navbar.active { display: block; } 
+    .navbar a { display: block; margin: 3rem 0; font-size: 1.8rem; } 
+    #menu-icon { display: block; } /* Ikon hamburger di header dimunculkan */
     
-    .social-icons { justify-content: center; } /* Logo FB dkk dikumpulkan bersatu rata tengah */
-    .about-container { grid-template-columns: 1fr; text-align: center; } /* Halaman About dipecah jadi 1 tiang susun ke bawah */
+    .social-icons { justify-content: center; } 
+    .about-container { grid-template-columns: 1fr; text-align: center; } /* 2 kolom dijadikan 1 susun ke bawah */
     
     .about-img-box {
-        display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3rem; /* Membariskan foto about dan kartu statistik susun berurut */
+        display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3rem;
     }
-    .about-img-box::before { display: none; } /* Balok gradasi pengganggu dihilangkan demi kewarasan layar HP */
+    .about-img-box::before { display: none; } 
     .about-img-box img {
-        position: relative; z-index: 2; max-width: 350px; margin-bottom: 2rem; display: block; /* Foto disusutkan maksimal 350px */
+        position: relative; z-index: 2; max-width: 350px; margin-bottom: 2rem; display: block;
     }
     .floating-card {
-        position: relative !important; top: 0 !important; right: 0 !important; /* MENGHILANGKAN POSISI MELAYANG. Diubah jadi kartu fisik nempel normal berbaris lurus */
+        position: relative !important; top: 0 !important; right: 0 !important; 
         bottom: 0 !important; left: 0 !important; width: 100% !important; 
         max-width: 350px; margin: 0 auto; display: block; 
     }
 }
 
-/* --- 2. UNTUK LAYAR HANDPHONE NORMAL SEDANG (Maksimal Lebar 768px) --- */
+/* =========================================================================
+   16. RESPONSIVE DESIGN: LAYAR HP REGULER (Maks. 768px)
+   Fungsi: Optimalisasi agar barisan kotak proyek & keahlian menjadi 2 kolom.
+========================================================================= */
 @media (max-width: 768px) {
-    .home { padding-left: 5%; padding-right: 5%; } /* Bantalan batas tepi layar HP ditipiskan */
-    .home-content h1 { font-size: 4rem; } /* Nama Besar Firdaus dikecilkan */
+    .home { padding-left: 5%; padding-right: 5%; } 
+    .home-content h1 { font-size: 4rem; } 
     .text-animation { font-size: 2rem; margin-bottom: 1.5rem; }
     .role-tags .role-item { font-size: 1.4rem; }
     .role-tags .role-item i { font-size: 1.8rem; }
     
-    .btn-group { flex-direction: column; width: 100%; gap: 1.5rem; } /* Tombol CV dan Hubungi patah menjadi 2 baris ke bawah */
-    .btn { width: 100%; justify-content: center; padding: 1.5rem 2rem; } /* Tombol memelar penuh kiri ke kanan layar */
+    .btn-group { flex-direction: column; width: 100%; gap: 1.5rem; } 
+    .btn { width: 100%; justify-content: center; padding: 1.5rem 2rem; } 
 
-    /* ============= PERBAIKAN GRID MENJADI TEPAT 2 KOLOM RAPI DI HP ============= 
-       Fungsi: 'repeat(2, minmax(0, 1fr))' memaksa grid menjadi 2 baris ke samping. 
-       minmax(0, 1fr) merupakan gembok paksa agar konten panjang tak mampu merobek lebar grid.
-    */
+    /* Memaksa Kotak Layanan, Proyek, Sertifikat & Kolaborasi menjadi susunan 2 Kolom menyamping */
     .services-container,
     .projects-container,
     .gallery-grid,
     .wrapper {
         display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Membuat tata letak kembar sepasang (Kiri-Kanan) */
-        gap: 0.8rem; /* Jarak pisah ditekan agar tidak tumpah dan memakan tempat */
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Kunci membagi layar jadi 2 kolom sama besar */
+        gap: 0.8rem; 
         width: 100%;
         margin-bottom: 3rem;
     }
 
-    /* Penyesuaian agar Kartu di dalam 2 kolom HP tidak menabrak dan pecah */
+    /* Penyesuaian Dimensi Kotak agar tidak sesak di ruang sempit 2 Kolom */
     .project-card, .service-box, .testimonial-item {
-        padding: 0.8rem 0.5rem; /* Jarak batas area dalam ditekan super tipis */
+        padding: 0.8rem 0.5rem; 
         min-height: auto; 
         width: 100%;
         box-sizing: border-box;
-        overflow: hidden; /* Mengamputasi teks nakal yang meluber dari kotak */
-        word-break: break-word; /* Jika ada kata tanpa spasi kepanjangan, akan dipaksa patah turun */
-        border-radius: 0.8rem; /* Sudut lengkung diperkecil agar proporsional */
+        overflow: hidden; 
+        word-break: break-word; /* Teks kepanjangan akan turun baris otomatis */
+        border-radius: 0.8rem; 
     }
     
     .project-img, .gallery-grid img {
         width: 100%;
-        height: 80px; /* Foto thumbnail diturunkan tajam tingginya namun seragam 80px */
-        object-fit: cover; /* Mencegah foto jadi mleyot / tertarik aneh */
+        height: 80px; 
+        object-fit: cover; 
         border-radius: 0.5rem;
         margin-bottom: 0.8rem;
     }
     
     .project-info {
-        flex-direction: column; /* Nama proyek digencet menimpa ke bawah tombol panah */
+        flex-direction: column; 
         align-items: center;
         text-align: center;
         gap: 0.5rem;
     }
     
     .project-info h3, .service-info h4, .testimonial-item h2 {
-        font-size: 1rem; /* Ukuran huruf di-set jadi kurcaci menyesuaikan bilik kolom yang sempit */
+        font-size: 1rem; 
         line-height: 1.2;
     }
     
     .project-desc, .service-info p, .testimonial-item p {
-        font-size: 0.85rem; /* Paragraf diperkecil agar terbaca namun tidak makan jalan */
+        font-size: 0.85rem; 
         line-height: 1.2;
         margin-bottom: 0.8rem;
     }
     
     .tech-stack {
-        justify-content: center; /* Label ArcGis dkk dipusatkan ke tengah */
+        justify-content: center; 
     }
-
     .tech-stack span {
-        font-size: 0.75rem; /* Pil kemampuan menciut menjadi butiran kecil lucu */
+        font-size: 0.75rem; 
         padding: 0.2rem 0.4rem;
     }
     
     .project-info a {
-        width: 2.2rem; height: 2.2rem; font-size: 1.1rem; /* Ikon Bulat Tautan diperkecil */
+        width: 2.2rem; height: 2.2rem; font-size: 1.1rem; 
     }
 
-    /* Khusus kotak logo kolaborasi Kementerian/Klien */
+    /* Spesifik Perbaikan: Logo Partner (Kolaborasi) di HP */
     .testimonial-item img {
         width: 100px; 
-        height: 100px; /* Ukuran Logo Klien diciutkan 40x40 pixel */
-        object-fit: contain; /* Dilindungi agar sisi logo tak terpotong seujung kuku pun */
-        border-width: 1px; /* Border pelindung logo dibuat lebih tipis */
+        height: 100px; 
+        object-fit: contain; 
+        border-width: 1px; 
         border-style: solid;
-        border-color: var(black); /* Border dibuat hitam pekat agar logo tetap terlihat jelas di latar gelap */
-        border-radius: 0.5rem; /* Sudut lengkung logo dibuat lebih kecil agar proporsional */
+        border-color: #000000; /* PERBAIKAN FATAL: var(black) diubah ke kode hex absolut */
+        border-radius: 0.5rem; 
     }
 
-    /* ====================================================================
-       ATURAN SAKTI LIMITASI TAMPILAN PROYEK 
-       Fungsi: Menyembunyikan proyek dari elemen urutan ke-5 hingga tak terbatas 
-       (Artinya hanya akan ada 4 Kotak Proyek yang terlihat berwujud formasi kotak 2x2 yang sangat keren)
-    ==================================================================== */
+    /* Sistem Potong Proyek (Show/Hide) - Sembunyikan proyek dari anak ke-5 ke atas */
     .projects-container:not(.show-all) .project-card:nth-child(n+5) {
         display: none !important;
     }
+    .see-more-btn { display: inline-flex !important; margin: 2rem auto 0; } /* Tampilkan tombol Load More */
 
-    /* Munculkan Tombol Sakti Pembuka Segel Sisa Proyek (Di HP saja) */
-    .see-more-btn { display: inline-flex !important; margin: 2rem auto 0; }
-
-    /* --- Timeline Pendidikan: Dibongkar Paksa Jadi Garis Jatuh Vertikal Ke Bawah --- */
+    /* Mengubah Timeline Riwayat Pendidikan yang tadinya horizontal menjadi Vertikal */
     .timeline-horizontal {
-        display: flex; flex-direction: column; padding-left: 3rem; margin-top: 3rem; /* Garis berbalik arah dari kanan ke bawah tanah */
+        display: flex; flex-direction: column; padding-left: 3rem; margin-top: 3rem; 
     }
     .timeline-item-h { height: auto; margin-bottom: 4rem; padding-right: 0; } 
-    .timeline-item-h::before, .timeline-item-h::after { display: none !important; } /* Bunuh seluruh kawat lengkung setan sisa mode Desktop! */
+    .timeline-item-h::before, .timeline-item-h::after { display: none !important; } /* Bunuh kabel efek S */
     
     .timeline-horizontal::before {
-        display: block; content: ''; position: absolute; width: 3px; height: 100%; /* Bangkitkan satu batang bambu neon sakti untuk tiang lurus */
+        display: block; content: ''; position: absolute; width: 3px; height: 100%; /* Tiang neon lurus tunggal ke bawah */
         left: 0; top: 0; background: var(--neon-blue);
         box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
     }
     .timeline-dot-h { 
-        position: absolute; left: -3rem; top: 0; transform: translateX(-50%); /* Geser Paksa Titik Buku Toga memaku tepat di belahan tiang lurus */
+        position: absolute; left: -3rem; top: 0; transform: translateX(-50%); 
     } 
     .aura-ring {
-        border: 2px solid rgba(0, 150, 255, 0.8); box-shadow: 0 0 15px rgba(0, 150, 255, 0.5); /* Cincin aura foto menipis mencegah HP meledak silau */
+        border: 2px solid rgba(0, 150, 255, 0.8); box-shadow: 0 0 15px rgba(0, 150, 255, 0.5); 
     }
 }
 
-/* --- 3. UNTUK LAYAR HANDPHONE SANGAT KECIL (Maksimal Lebar Cuma 480px) --- */
+/* =========================================================================
+   17. RESPONSIVE DESIGN: LAYAR HP MINI (Maks. 480px)
+   Fungsi: Pengamanan ekstra supaya desain web tidak hancur di HP layar super sempit.
+========================================================================= */
 @media (max-width: 480px) {
-    .home-content h1 { font-size: 3.2rem; } /* Nama Besar Bos ciut di batas aman */
+    .home-content h1 { font-size: 3.2rem; } 
     .text-animation { font-size: 1.6rem; } 
-    .aura-container { width: 220px; height: 220px; } /* Lingkar wajah disembelih batasnya cuma mentok diameter 220px */
+    .aura-container { width: 220px; height: 220px; } /* Lingkar wajah ciut drastis */
 
-    /* Pengamanan extra ketat agar formasi kembar 2 kolom di HP layar 480px tidak pecah berantakan */
-    .project-img, .gallery-grid img { height: 50px; } /* Gambar dipendekkan ke tingkatan darurat militer 50px */
-    .project-info h3, .service-info h4, .testimonial-item h2 { font-size: 0.9rem; } /* Judul mengecil */
-    .project-desc, .service-info p, .testimonial-item p { font-size: 0.75rem; } /* Deskripsi dikebiri */
-    .testimonial-item img { width: 30px; height: 30px; } /* Logo PT susut super parah sisa 30px */
+    /* Pengamanan extra ketat agar formasi kembar 2 kolom di layar 480px tidak tumpah */
+    .project-img, .gallery-grid img { height: 50px; } /* Tinggi foto diciutkan ke 50px */
+    .project-info h3, .service-info h4, .testimonial-item h2 { font-size: 0.9rem; } 
+    .project-desc, .service-info p, .testimonial-item p { font-size: 0.75rem; } 
+    .testimonial-item img { width: 30px; height: 30px; } /* Logo PT klien disusutkan sisa 30px */
 
     .contact form .input-box input, 
-    .contact form textarea { padding: 1.5rem; font-size: 1.4rem; } /* Bantal spasi pengetikan disunat agar kolom pesan tak membesar */
+    .contact form textarea { padding: 1.5rem; font-size: 1.4rem; } 
 }
