@@ -1,365 +1,299 @@
 /* =========================================================================
-   SEG MEN 1: KONFIGURASI UTAMA HALAMAN DEPAN (ID: particles-js)
-   Fungsi: Mengatur animasi debu kosmik jaring data spasial pada area Beranda.
+   BAGIAN 1: ANIMASI TEKS MENGETIK OTOMATIS (TYPED.JS) DI BERANDA
 ========================================================================= */
+// Mengecek apakah elemen dengan kelas .text-animation ada di halaman
+if (document.querySelector('.text-animation')) {
+    // Memulai efek mesin ketik yang menampilkan berbagai keahlian secara bergantian
+    var typed = new Typed(".text-animation", {
+        strings: ["Urban Planner", "GIS Enthusiast", "Surveyor", "Drone Pilot", "Graphic Designer"],
+        typeSpeed: 100, // Kecepatan mengetik teks per huruf (100 ms)
+        backSpeed: 50,  // Kecepatan menghapus teks sebelum ganti kata baru (50 ms)
+        backDelay: 1000, // Jeda waktu menunggu setelah kata selesai diketik sebelum dihapus (1 detik)
+        loop: true // Mengulang animasi ketikan ini tanpa henti (selamanya)
+    });
+}
 
-// Memanggil fungsi library particlesJS untuk menyuntikkan kanvas partikel ke elemen HTML ber-ID "particles-js"
-particlesJS("particles-js", {
-  
-  // Objek utama "particles" untuk mengatur bentuk fisik, jumlah, warna, dan pergerakan debu
-  "particles": {
-    
-    // Blok pengaturan jumlah objek partikel yang melayang di layar
-    "number": {
-      "value": 50,             // Membatasi jumlah debu maksimal 50 biji saja agar HP pembaca tidak panas/lag
-      "density": {
-        "enable": true,        // Mengaktifkan kalkulasi kepadatan otomatis berdasarkan luas layar perangkat
-        "value_area": 800      // Rumus penyebaran: 50 partikel akan disebar rata setiap luasan ruang 800 piksel
-      }
-    },
-    
-    // Blok pengaturan warna partikel debu kosmik
-    "color": {
-      // Menyimpan 3 variasi warna (Biru Neon, Ungu Spasial, Putih Cerah) yang akan diacak di setiap butiran
-      "value": ["#00e5ff", "#4f46e5", "#ffffff"] 
-    },
-    
-    // Blok pengaturan geometri bentuk partikel
-    "shape": {
-      "type": "circle",        // Memahat cetakan partikel menjadi bentuk bulat/lingkaran debu murni
-    },
-    
-    // Blok pengaturan transparansi (kebeningan) butiran partikel
-    "opacity": {
-      "value": 0.4,            // Mengunci transparansi maksimal di angka 40% agar teks profil Bos Daus tetap kontras
-      "random": true,          // Mengaktifkan efek acak: ada butiran yang terang dan ada yang redup samar (efek bokeh)
-      
-      // Mengaktifkan animasi kelap-kelip (pulsing) pada transparansi partikel
-      "anim": { 
-        "enable": true,        // Menghidupkan animasi siklus perubahan kebeningan debu
-        "speed": 1.5,          // Kecepatan transisi kelap-kelip debu diatur konstan di angka ritme 1.5
-        "opacity_min": 0.1,    // Batas paling redup saat partikel memudar adalah 10% (tidak sampai hilang gaib)
-        "sync": false          // Diatur false agar kedipan butiran debu tidak barengan (berkedip bergantian)
-      }
-    },
-    
-    // Blok pengaturan diameter ukuran besar-kecilnya butiran partikel
-    "size": {
-      "value": 3,              // Mengunci ukuran diameter rata-rata butiran debu kosmik di dimensi kecil 3px
-      "random": true,          // Mengaktifkan ukuran acak: ada debu yang berukuran mikro dan ada yang sedikit besar
-      
-      // Mengaktifkan animasi kembang-kempis (bernafas) pada diameter partikel
-      "anim": { 
-        "enable": true,        // Menghidupkan animasi perubahan dinamis ukuran partikel
-        "speed": 2,            // Kecepatan animasi kembang kempis butiran diatur pada tempo sedang skala 2
-        "size_min": 0.1,       // Batas ciut paling minimal butiran debu mengecil adalah seukuran 0.1px
-        "sync": false          // Diatur false agar setiap butiran membesar dan mengecil secara acak bergantian
-      }
-    },
-    
-    // Blok pengaturan jaring-jaring laba-laba penghubung antar data spasial (Line Linked)
-    "line_linked": {
-      "enable": true,          // DIAKTIFKAN KEMBALI: Menghubungkan butiran debu dengan garis rajutan data spasial
-      "distance": 150,         // Jarak jangkauan maksimal antar debu untuk bisa saling menarik garis jaring (150px)
-      "color": "#ffffff",      // Tinta rajutan garis jaring diwarnai putih murni bercahaya
-      "opacity": 0.2,          // Jaring dibuat super tipis transparan (20%) agar latar belakang tidak terlihat semak
-      "width": 1               /* Ketebalan kuas garis jaring pembentuk rasi bintang disetel setipis 1px */
-    },
-    
-    // Blok pengaturan fisika pergerakan gaya kinetik debu kosmik
-    "move": {
-      "enable": true,          // Menyalakan motor penggerak agar butiran debu bisa berlayar melayang dinamis
-      "speed": 2,              // Kecepatan meluncur debu kosmik diatur santai di skala 2 agar terlihat tenang
-      "direction": "none",     // Arah terbang bebas ke segala penjuru mata angin (tidak condong ke atas/bawah)
-      "random": true,          // Membuat rute arah terbang setiap butiran acak berliku-liku ( Brown Mode )
-      "straight": false,       // Diatur false agar butiran bergerak meliuk-liuk lembut (tidak kaku lurus seperti peluru)
-      "out_mode": "out",       // Jika butiran terbang menembus batas layar, ia akan keluar (out) dan lahir baru di sisi lain
-      "bounce": false,         /* Diatur false agar butiran tidak memantul seperti bola pingpong saat menabrak dinding layar */
-    }
-  },
-  
-  // Objek "interactivity" untuk menangkap dan merespons interaksi kursor mouse/jari pengguna di layar canvas
-  "interactivity": {
-    "detect_on": "canvas",     // Detektor interaksi diikat kuat langsung pada lapisan papan canvas HTML5
-    
-    // Blok pemicu aksi berdasarkan jenis gerakan kursor (Event Trigger)
-    "events": {
-      "onhover": { 
-        "enable": true,        // Menyalakan radar pengendus kursor mouse saat melintas di atas partikel
-        "mode": "grab"         // Mode Grab: Jaring rasi bintang akan otomatis menangkap dan mengikatkan diri ke kursor mouse
-      },
-      "onclick": { 
-        "enable": true,        // Menyalakan fungsi deteksi ketukan klik jari/mouse di layar website
-        "mode": "push"         // Mode Push: Setiap Bos Daus klik layar, rasi bintang baru akan lahir mendadak
-      },
-      "resize": true           // Wajib true: Mengatur ulang formasi partikel jika orientasi layar HP diputar/dibalik
-    },
-    
-    // Blok rincian teknis dari masing-masing mode interaksi di atas
-    "modes": {
-      "grab": {
-        "distance": 140,       // Batas radius magnet penarik jaring kursor disetel sejauh 140px
-        "line_linked": {
-          "opacity": 0.8       // Ketika kursor mendekat, garis jaring spasial mengeras menebal jelas jadi 80% pekat
-        }
-      },
-      "push": {
-        "particles_nb": 3      // Menetapkan jumlah angka kelahiran debu kosmik baru sebanyak 3 biji sekali klik
-      }
-    }
-  },
-  
-  "retina_detect": true        // Mengaktifkan dukungan resolusi layar tajam (Retina/DPI Tinggi) agar debu tidak pecah
+
+/* =========================================================================
+   BAGIAN 2: EFEK MUNCUL HALUS SAAT HALAMAN DIGULIR (SCROLL REVEAL)
+========================================================================= */
+// Menginisialisasi alat efek ScrollReveal dengan pengaturan dasar
+const sr = ScrollReveal({
+    distance: '60px', // Elemen akan bergeser sejauh 60px sebelum muncul utuh
+    duration: 2500,   // Durasi pelan pergerakan memakan waktu 2.5 detik
+    delay: 400,       // Jeda waktu sebelum animasi dimulai
+    reset: false      // Disetel false agar animasi cuma terjadi sekali (saat pertama dilihat)
+});
+
+// Menerapkan efek pudar turun dari atas ke elemen-elemen judul & sapaan
+sr.reveal('.home-content h3, .home-content h1, .section-header h2, .section-header h3', { origin: 'top' });
+
+// Menerapkan efek pudar naik dari bawah ke tombol, foto profil, dan teks deskripsi
+sr.reveal('.home-content p, .btn-group, .social-icons, .home-img, .about-content', { origin: 'bottom' });
+
+// Menerapkan efek pudar geser dari arah luar kiri untuk elemen-elemen barisan awal
+sr.reveal('.about-img-box, .service-box:nth-child(1), .project-card:nth-child(1)', { origin: 'left' });
+
+// Menerapkan efek pudar geser dari arah luar kanan untuk elemen-elemen barisan akhir
+sr.reveal('.service-box:last-child, .project-card:last-child, .contact form', { origin: 'right' });
+
+
+/* =========================================================================
+   BAGIAN 3: EFEK KARTU MIRING 3D MELAYANG (VANILLA TILT) PADA FOTO
+========================================================================= */
+// Menerapkan efek hologram 3D jika kursor mouse melayang di atas foto About Me
+VanillaTilt.init(document.querySelectorAll(".about-img-box img"), {
+    max: 15,          // Sudut kemiringan maksimal kardus saat diputar
+    speed: 400,       // Kecepatan transisi kartu merespons gerakan mouse
+    glare: true,      // Menambahkan efek kilap kaca di atas foto
+    "max-glare": 0.3, // Intensitas cahaya kilap silau maksimal 30%
 });
 
 
 /* =========================================================================
-   SEG MEN 2: KONFIGURASI SEG MEN PENDIDIKAN (ID: particles-js-education)
-   Fungsi: Mengatur background partikel untuk area alur garis waktu sekolah.
+   BAGIAN 4: LOGIKA POPUP DOWNLOAD CV DAN PENGIRIMAN EMAIL (EMAILJS)
 ========================================================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    const cvPopup = document.getElementById('cvPopup'); 
+    const openCvBtn = document.getElementById('openCvPopup'); 
+    const closeCvBtn = document.querySelector('.close-cv-popup'); 
+    const cvForm = document.getElementById('cvForm'); 
 
-// Menginisialisasi instansi partikel kedua khusus untuk area ID "particles-js-education"
-particlesJS("particles-js-education", {
-  "particles": {
-    "number": {
-      "value": 50,             // Membatasi populasi debu 50 biji untuk menjaga efisiensi RAM handphone
-      "density": { "enable": true, "value_area": 800 }
-    },
-    "color": {
-      "value": ["#00e5ff", "#4f46e5", "#ffffff"] 
-    },
-    "shape": {
-      "type": "circle",
-    },
-    "opacity": {
-      "value": 0.4,            // Kebeningan diatur 40% agar tulisan SMP/SMA/UMB Bos Daus terbaca tajam
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 1.5, 
-        "opacity_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "size": {
-      "value": 3,              // Diameter butiran debu rasi 3px agar proporsional di balik garis kelok neon
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 2, 
-        "size_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "line_linked": {
-      "enable": true,          // DIAKTIFKAN KEMBALI: Menghubungkan debu membentuk rasi bintang di area pendidikan
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.2, 
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 2,              // Kecepatan konstan skala 2 membuat pergerakan terasa tenang mengalir
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
+    // EVENT 1: Fungsi Membuka Jendela Popup saat Tombol Download CV ditekan
+    if (openCvBtn) {
+        openCvBtn.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            cvPopup.classList.add('show'); 
+        });
     }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": { 
-        "enable": true, 
-        "mode": "grab"         // Mengaktifkan jaring rasi bintang menangkap kursor mouse pengunjung
-      },
-      "onclick": { 
-        "enable": true, 
-        "mode": "push"         // Menambah 3 butiran debu baru saat area pendidikan diklik
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 0.8
+
+    // EVENT 2: Fungsi Menutup Jendela Popup lewat Tanda Silang (X)
+    if (closeCvBtn) {
+        closeCvBtn.addEventListener('click', function() {
+            cvPopup.classList.remove('show'); 
+        });
+    }
+
+    // EVENT 3: Fungsi Menutup Jendela saat Area Luar hitam buram diklik
+    window.addEventListener('click', function(e) {
+        if (e.target === cvPopup) {
+            cvPopup.classList.remove('show');
         }
-      },
-      "push": {
-        "particles_nb": 3
-      }
+    });
+
+    // Menginisialisasi Kunci (Public Key) EmailJS API milik Bos Daus 
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("kxst4R5_oEL4gNZAP");
+
+        // Perintah pengiriman form ke email pengunjung
+        if (cvForm) {
+            cvForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                
+                const emailInput = document.getElementById('userEmail').value; 
+                const submitBtn = cvForm.querySelector('button[type="submit"]'); 
+                const originalBtnText = submitBtn.innerText; 
+                
+                // Ubah status tombol jadi Loading
+                submitBtn.innerText = "Mengirim...";
+                submitBtn.disabled = true;
+                
+                const templateParams = {
+                    user_email: emailInput
+                };
+
+                // Perintah Inti: Menembak Service ID dan Template ID
+                emailjs.send("service_di2sbtm", "template_vl7ido2", templateParams)
+                    .then(function(response) {
+                        alert('Berhasil! Tautan CV telah dikirim ke ' + emailInput);
+                        cvPopup.classList.remove('show'); 
+                        cvForm.reset(); 
+                    }, function(error) {
+                        alert('Gagal mengirim email. Periksa koneksi internet Bos Daus.\nError: ' + JSON.stringify(error));
+                    })
+                    .finally(function() {
+                        // Mengembalikan status tombol menjadi normal
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
+            });
+        }
     }
-  },
-  "retina_detect": true
 });
 
 
 /* =========================================================================
-   SEG MEN 3: KONFIGURASI SEG MEN KEAHLIAN (ID: particles-js-skill)
-   Fungsi: Mengatur efek partikel di belakang barisan kotak keahlian/layanan teknis Bos Daus.
+   BAGIAN 5: LOGIKA SISTEM FILTRASI GRID (LIHAT LEBIH BANYAK)
 ========================================================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    const seeMoreBtn = document.getElementById('seeMoreBtn'); // Menangkap tombol See More
+    const projectsContainer = document.getElementById('portfolioGrid'); // Menangkap wadah spesifik daftar Proyek
 
-// Menginisialisasi instansi partikel ketiga khusus untuk area ID "particles-js-skill"
-particlesJS("particles-js-skill", {
-  "particles": {
-    "number": {
-      "value": 50,             // Populasi partikel dijaga di angka 50 biji demi kelancaran proses rendering browser
-      "density": { "enable": true, "value_area": 800 }
-    },
-    "color": {
-      "value": ["#00e5ff", "#4f46e5", "#ffffff"] 
-    },
-    "shape": {
-      "type": "circle",
-    },
-    "opacity": {
-      "value": 0.4,            // Transparansi 40% menjaga kotak keahlian tetap estetik mengambang di atas background
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 1.5, 
-        "opacity_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "size": {
-      "value": 3,              // Butiran debu mini 3px berkedip anggun di balik detail card
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 2, 
-        "size_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "line_linked": {
-      "enable": true,          // DIAKTIFKAN KEMBALI: Memberikan visual jaring konektivitas keahlian spasial
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.2, 
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 2,              // Kecepatan laju pelan skala 2 berlayar beriringan di balik layar komputer
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
+    if (seeMoreBtn && projectsContainer) {
+        seeMoreBtn.addEventListener('click', function() {
+            // Bergantian melepas/memasang class pelindung "show-all" (pengatur CSS tersembunyi)
+            projectsContainer.classList.toggle('show-all');
+            
+            // Logika If/Else penggantian label tombol
+            if (projectsContainer.classList.contains('show-all')) {
+                seeMoreBtn.innerHTML = "Sembunyikan <i class='bx bx-chevron-up'></i>"; 
+            } else {
+                seeMoreBtn.innerHTML = "Lihat Lebih Banyak <i class='bx bx-chevron-down'></i>"; 
+                window.location.href = "#projects"; // Memaksa browser meloncat balik ke area judul Portofolio
+            }
+        });
     }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": { 
-        "enable": true, 
-        "mode": "grab"         // Garis jaring data menyambar kursor saat melewati area kotak keahlian
-      },
-      "onclick": { 
-        "enable": true, 
-        "mode": "push"         // Menyemburkan 3 partikel tambahan setiap ketukan layar di area skill
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 0.8
-        }
-      },
-      "push": {
-        "particles_nb": 3
-      }
-    }
-  },
-  "retina_detect": true
 });
 
 
 /* =========================================================================
-   SEG MEN 4: KONFIGURASI SEG MEN RIWAYAT KOLABORASI (ID: particles-js-riwayatkolaborasi)
-   Fungsi: Mengatur latar rasi bintang khusus pada tumpukan dinding logo perusahaan klien.
-========================================= */
+   BAGIAN 6: LOGIKA MENU NAVIGASI MOBILE (HAMBURGER MENU) 
+========================================================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    const menuIcon = document.querySelector('#menu-icon'); 
+    const navbar = document.querySelector('.navbar'); 
 
-// Menginisialisasi instansi partikel terakhir khusus untuk area ID "particles-js-riwayatkolaborasi"
-particlesJS("particles-js-riwayatkolaborasi", {
-  "particles": {
-    "number": {
-      "value": 50,             // Populasi tetap dikunci 50 butir demi menghemat baterai HP pembuka portofolio
-      "density": { "enable": true, "value_area": 800 }
-    },
-    "color": {
-      "value": ["#00e5ff", "#4f46e5", "#ffffff"] 
-    },
-    "shape": {
-      "type": "circle",
-    },
-    "opacity": {
-      "value": 0.4,            // Transparansi tipis 40% membuat deretan logo perusahaan putih pekat terlihat menonjol
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 1.5, 
-        "opacity_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "size": {
-      "value": 3,              // Butiran halus berukuran 3px melayang di sela-sela logo instansi kementerian/klien
-      "random": true, 
-      "anim": { 
-        "enable": true, 
-        "speed": 2, 
-        "size_min": 0.1, 
-        "sync": false 
-      }
-    },
-    "line_linked": {
-      "enable": true,          // DIAKTIFKAN KEMBALI: Menghubungkan debu membentuk jaring relasi kolaborasi kerja
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.2, 
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 2,              // Kecepatan kinetik konstan skala 2 menjaga ritme ketenangan web
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
+    if (menuIcon) {
+        // Membuka/Menutup menu saat ikon hamburger diklik dengan jari
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('bx-x'); // Ubah ikon ke Tanda Silang
+            navbar.classList.toggle('active');  // Munculkan palet menu
+        });
     }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": { 
-        "enable": true, 
-        "mode": "grab"         // Garis rajutan rasi bintang merespons geseran mouse pengunjung dengan lincah
-      },
-      "onclick": { 
-        "enable": true, 
-        "mode": "push"         // Melahirkan 3 butir debu kosmik tambahan saat dinding kolaborasi diketuk jari
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 0.8
+
+    // Menutup kotak menu navigasi otomatis jika pengguna mulai menggulir layar
+    window.addEventListener('scroll', () => {
+        if (menuIcon && navbar) {
+            menuIcon.classList.remove('bx-x'); 
+            navbar.classList.remove('active'); 
         }
-      },
-      "push": {
-        "particles_nb": 3
-      }
-    }
-  },
-  "retina_detect": true
+    });
 });
+
+
+/* =========================================================================
+   BAGIAN 7: KONFIGURASI ENGINE PARTICLES.JS (EFEK DEBU KOSMIK & JARING DATA)
+========================================================================= */
+
+// Pastikan library particlesJS terdeteksi dan tidak error sebelum dieksekusi
+if (typeof particlesJS !== 'undefined') {
+
+    /* --- SEG MEN 1: KONFIGURASI UTAMA HALAMAN DEPAN (ID: particles-js) --- */
+    if (document.getElementById('particles-js')) {
+        particlesJS("particles-js", {
+          "particles": {
+            "number": {
+              "value": 50,             // Membatasi jumlah debu maksimal 50 biji saja agar HP tidak panas
+              "density": { "enable": true, "value_area": 800 }
+            },
+            "color": {
+              "value": ["#00e5ff", "#4f46e5", "#ffffff"] // Tinta Biru Neon, Ungu Spasial, Putih Cerah
+            },
+            "shape": { "type": "circle" }, // Cetakan bundar bulat
+            "opacity": {
+              "value": 0.4,            // Kebeningan maksimal 40%
+              "random": true,          // Efek redup-terang acak
+              "anim": { "enable": true, "speed": 1.5, "opacity_min": 0.1, "sync": false }
+            },
+            "size": {
+              "value": 3,              // Ukuran butiran debu 3px
+              "random": true, 
+              "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false }
+            },
+            "line_linked": {
+              "enable": true,          // Jaring penghubung data spasial diaktifkan
+              "distance": 150,         // Batas saling terkait 150 piksel
+              "color": "#ffffff",
+              "opacity": 0.2,          // Setipis bayangan (20%)
+              "width": 1 
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,              // Laju konstan tenang kecepatan 2
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": { "enable": true, "mode": "grab" }, // Kursor menangkap jaring
+              "onclick": { "enable": true, "mode": "push" }, // Klik melahirkan 3 bintang baru
+              "resize": true
+            },
+            "modes": {
+              "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
+              "push": { "particles_nb": 3 }
+            }
+          },
+          "retina_detect": true
+        });
+    }
+
+    /* --- SEG MEN 2: KONFIGURASI SEG MEN PENDIDIKAN (ID: particles-js-education) --- */
+    if (document.getElementById('particles-js-education')) {
+        particlesJS("particles-js-education", {
+          "particles": {
+            "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": ["#00e5ff", "#4f46e5", "#ffffff"] },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1.5, "opacity_min": 0.1, "sync": false } },
+            "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 3 } }
+          },
+          "retina_detect": true
+        });
+    }
+
+    /* --- SEG MEN 3: KONFIGURASI SEG MEN KEAHLIAN (ID: particles-js-skill) --- */
+    if (document.getElementById('particles-js-skill')) {
+        particlesJS("particles-js-skill", {
+          "particles": {
+            "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": ["#00e5ff", "#4f46e5", "#ffffff"] },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1.5, "opacity_min": 0.1, "sync": false } },
+            "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 3 } }
+          },
+          "retina_detect": true
+        });
+    }
+
+    /* --- SEG MEN 4: KONFIGURASI SEG MEN RIWAYAT KOLABORASI (ID: particles-js-riwayatkolaborasi) --- */
+    if (document.getElementById('particles-js-riwayatkolaborasi')) {
+        particlesJS("particles-js-riwayatkolaborasi", {
+          "particles": {
+            "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": ["#00e5ff", "#4f46e5", "#ffffff"] },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1.5, "opacity_min": 0.1, "sync": false } },
+            "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 3 } }
+          },
+          "retina_detect": true
+        });
+    }
+
+}
