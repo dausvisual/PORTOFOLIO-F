@@ -110,6 +110,8 @@ section {
     font-weight: 800;                      /* Membuat ketebalan huruf logo menjadi sangat tebal (bold) */
     cursor: pointer;                       /* Mengubah kursor panah menjadi ikon tangan saat diarahkan ke logo */
     transition: 0.3s ease;                 /* Transisi halus sebesar 0.3 detik saat logo berinteraksi dengan mouse */
+    line-height: 1.1;                      /* Merapatkan jarak atas-bawah antara Firdaus dan Ikram */
+    display: inline-block;                 /* Mengizinkan logo bertingkah seperti kotak sebaris horizontal */
 }
 
 .logo:hover { 
@@ -118,6 +120,7 @@ section {
 
 .logo span { 
     color: var(--main-color);              /* Memberikan warna ungu aksen khusus pada kata "Ikram" saja */ 
+    font-size: 2rem;                       /* Sedikit mengecilkan teks Ikram agar proporsional di baris kedua */
 }
 
 .navbar a {
@@ -254,9 +257,21 @@ section {
     font-weight: 500;                      /* Ketebalan huruf teks jabatan medium */
 }
 
-.role-item i {
-    color: var(--main-color-light);        /* Menambahkan warna aksen ungu terang spesifik pada ikon jabatan */
-    font-size: 2.2rem;                     /* Memperbesar sedikit ukuran ikon di samping teks jabatan agar terlihat jelas */
+/* --- Membuat lingkaran pembungkus ikon keahlian --- */
+.role-item .icon-box {
+    display: flex;                         /* Mengaktifkan flex di dalam boks untuk memusatkan ikon font */
+    justify-content: center;               /* Ikon font ditarik tepat di tengah sumbu horizontal boks */
+    align-items: center;                   /* Ikon font ditarik tepat di tengah sumbu vertikal boks */
+    width: 3.2rem;                         /* Lebar boks lingkaran pembungkus disetel statis sepanjang 32px */
+    height: 3.2rem;                        /* Tinggi boks lingkaran pembungkus disetel statis sepanjang 32px */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Melukis bingkai lingkaran tipis transparan putih 15% */
+    border-radius: 50%;                    /* Memahat boks bujur sangkar menjadi bentuk bulatan roda utuh */
+    background: rgba(255, 255, 255, 0.02); /* Mengisi latar belakang boks dengan warna putih samar 2% */
+}
+
+.role-item .icon-box i {
+    color: var(--main-color-light);        /* Warna simbol ikon font diwarnai ungu terang cerah */
+    font-size: 1.6rem;                     /* Ukuran lambang simbol ikon diperkecil menjadi 16px proporsional */
 }
 
 .role-dot {
@@ -306,6 +321,14 @@ section {
     transform: translateY(-3px);           /* Tombol sekunder juga ikut melayang naik 3px ke atas saat dihover */
 }
 
+.social-icons {
+    display: flex;                         /* Mengaktifkan barisan tata letak ikon media sosial memakai flex */
+    justify-content: flex-start;           /* Default di desktop dipasang rata kiri mengikuti aliran teks */
+    flex-wrap: wrap;                       /* Mengizinkan ikon sosmed patah baris jika space mendesak */
+    gap: 1.5rem;                           /* Jarak celah renggang antar bulatan bulatan sosmed sebesar 15px */
+    width: 100%;                           /* Lebar wadah membentang luas 100% menguasai kapling kolom */
+}
+
 .social-icons a {
     display: inline-flex;                  /* Ikon sosial media disusun sejajar horizontal */
     justify-content: center;               /* Memastikan ikon di tengah lingkaran horizontal */
@@ -318,7 +341,7 @@ section {
     border-radius: 50%;                    /* Membulatkan kotak menjadi bentuk lingkaran penuh */
     color: #cbd5e1;                        /* Warna ikon putih keabu-abuan */
     margin: 1rem 1.5rem 3rem 0;            /* Ruang luar: atas 10px, kanan 15px, bawah 30px, kiri 0 */
-    transition: 0.3s ease-in-out;          /* Animasi mulus saat ikon disorot */                     /* Menghilangkan margin atas untuk ikon pertama agar sejajar dengan tombol aksi */
+    transition: 0.3s ease-in-out;          /* Animasi mulus saat ikon disorot */                      
 }
 
 .social-icons a:hover {
@@ -1210,8 +1233,7 @@ section {
 } 
 
 .see-more-btn { 
-    display: none;                         /* Tombol sengaja ditiadakan dari pandangan, dikemudikan JS sepenuhnya! */
-    margin: 0 auto;                        /* Mengatur letak tombol otomatis seimbang di tengah-tengah absis x */
+    display: none;                         /* Tombol disembunyikan di desktop secara default, hanya akan tampil di HP */
 } 
 
 /* =========================================================================
@@ -1374,9 +1396,43 @@ section {
         display: block;                    /* Ikon tiga garis yang semula lenyap di desktop, kini dipaksa tampil memimpin gerbang HP */
     } 
 
-    /* --- 2. MENENGAHKAN SOSIAL MEDIA DI HP --- */
+    /* --- MENENGAHKAN SOSIAL MEDIA DI HP --- */
     .social-icons {
         justify-content: center;           /* Mendorong kelompok lambang sosmed merapat berpusat tengah di HP */
+    }
+
+    /* ============= PERBAIKAN LAYOUT ABOUT KHUSUS MOBILE ============= */
+    .about-container {
+        grid-template-columns: 1fr;        /* Mengubah 2 kolom teks-foto menjadi 1 kolom vertikal ke bawah di HP */
+        text-align: center;                /* Seluruh teks about diatur ke tengah agar elegan */
+    }
+    .about-img-box {
+        display: flex;                     /* Mengaktifkan flex pada wadah foto agar kartu tidak bertabrakan dengan teks */
+        flex-direction: column;            /* Menumpuk kartu edukasi dan hobi menjadi susun ke bawah secara rapi */
+        align-items: center;               /* Menarik gambar dan semua kartu ke titik tengah HP */
+        gap: 1.5rem;                       /* Jarak aman 15px antar elemen kartu melayang di HP */
+        margin-top: 3rem;                  /* Jarak aman dengan teks biografi di atasnya */
+    }
+    .about-img-box::before {
+        display: none;                     /* FIX: Menyembunyikan balok bayangan gradien ungu di belakang foto karena mendorong layar HP jadi berantakan */
+    }
+    .about-img-box img {
+        position: relative;                /* Mengamankan foto profil di hirarki posisi terdepan */
+        z-index: 2;                        /* Menaruh foto di atas lapisan grid */
+        max-width: 350px;                  /* Menciutkan foto dari raksasa menjadi 350px pas seukuran HP */
+        margin-bottom: 2rem;               /* Batas napas bawah ke kartu pendidikan */
+        display: block;                    /* FIX: Memastikan foto tidak disembunyikan dan tampil blok kokoh */
+    }
+    .floating-card {
+        position: relative !important;     /* MENCABUT KUTUKAN Absolute! Merubah kartu melayang menjadi kotak fisik biasa yang antre ke bawah */
+        top: 0 !important;                 /* Menghapus paksa sisa perintah koordinat tabrak lari dari CSS Desktop */
+        right: 0 !important;               /* Menghapus paksa sisa perintah koordinat tabrak lari dari CSS Desktop */
+        bottom: 0 !important;              /* Menghapus paksa sisa perintah koordinat tabrak lari dari CSS Desktop */
+        left: 0 !important;                /* Menghapus paksa sisa perintah koordinat tabrak lari dari CSS Desktop */
+        width: 100% !important;            /* Memaksa kartu melenturkan badannya selebar mungkin */
+        max-width: 350px;                  /* Namun dilarang menggemuk melewati 350px batas estetika */
+        margin: 0 auto;                    /* Posisi mutlak di tengah poros layar */
+        display: block;                    /* Memastikan kartunya TIDAK DISENBUNYIKAN (Fix bug foto about hilang di HP) */
     }
 }
 
@@ -1417,6 +1473,25 @@ section {
         width: 100%;                       /* Sempurnakan perintah pelebaran si tombol CV merentang manja hingga sudut kanan layar */
         justify-content: center;           /* Mencengkeram ikon download panah kearah sentral jantung ulu hati tombol */
         padding: 1.5rem 2rem;              /* Rongga gemuk memastikan pukulan jari tidak luput menyentuh zona sakral CTA */
+    }
+
+    /* ============= PERBAIKAN SEMUA GRID DI HP (1 KOLOM MENYUSUN KE BAWAH) ============= */
+    .services-container,
+    .projects-container,
+    .gallery-grid,
+    .wrapper {
+        grid-template-columns: 1fr;        /* ATURAN SAKTI HP: Pecahkan seluruh barisan menyamping menjadi antrean 1 kolom panjang ke bawah */
+    }
+
+    /* LIMITASI PROJECTS DI MOBILE (CUKUP TAMPIL 3 BARIS KE BAWAH) */
+    .projects-container:not(.show-all) .project-card:nth-child(n+4) {
+        display: none !important;          /* Menyembunyikan kartu proyek ke-4 dan seterusnya jika tombol belum diklik */
+    }
+
+    /* MUNCULKAN TOMBOL SEE MORE DI HP */
+    .see-more-btn {
+        display: inline-flex !important;   /* Menampilkan tombol "Lihat Lebih Banyak" yang semula disembunyikan di desktop */
+        margin: 0 auto;                    /* Rata tengah */
     }
 
     /* Modifikasi Jalur Pendidikan S-Curve Setan Menjadi Jalan Tol Vertikal Khusus Hape Layar Secuil */
@@ -1518,6 +1593,6 @@ section {
     } 
     
     .wrapper { 
-        grid-template-columns: 1fr;        /* AKHIRNYA: Mencincang barisan 5 kolom logo PT menjadi 1 Baris Tunggal Penuh Sepanjang Lorong Kegelapan 1FR Memanjang Sendiri Kesepian! Tamatlah Riwayat Estetika Desktop! Hidup Fungsionalitas Mobile! */
+        grid-template-columns: 1fr;        /* AKHIRNYA: Mencincang barisan kolom logo PT menjadi 1 Baris Tunggal Penuh Sepanjang Lorong Kegelapan 1FR Memanjang Sendiri Kesepian! Tamatlah Riwayat Estetika Desktop! Hidup Fungsionalitas Mobile! */
     } 
 }
