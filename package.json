@@ -1,0 +1,25 @@
+{
+  "name": "firdaus-ikram-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Firdaus Ikram, S.PWK - Urban Planner, GIS Enthusiast & Surveyor",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build required'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "portfolio",
+    "urban-planning",
+    "gis",
+    "surveyor"
+  ],
+  "author": "Firdaus Ikram",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
